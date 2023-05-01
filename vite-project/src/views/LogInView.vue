@@ -19,6 +19,7 @@ const handleLogin = async () => {
     })
     sessionStore.session = data.session
     sessionStore.user = data.user
+    await initProfile()
     if (error) throw error
     window.location = "/"
   } catch (error) {
@@ -28,6 +29,17 @@ const handleLogin = async () => {
   } finally {
     loading.value = false
   }
+}
+
+async function initProfile() {
+  const updates = {
+      id: sessionStore.user.id,
+      username: "MNRMax",
+      // website: website.value,
+      // avatar_url: avatar_url.value,
+      updated_at: new Date(),
+    }
+    let { error } = await supabase.from('profiles').upsert(updates)
 }
 </script>
 
