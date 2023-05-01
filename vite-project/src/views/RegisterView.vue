@@ -7,18 +7,20 @@ const sessionStore = useSessionStore()
 
 let loading = ref(false)
 let email = ref("")
+let usename = ref("")
 let password = ref("")
 
 
-const handleLogin = async () => {
+const handleSignUp = async () => {
   try {
     loading.value = true
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value
     })
     sessionStore.session = data.session
     sessionStore.user = data.user
+    await initProfile()
     if (error) throw error
     window.location = "/"
   } catch (error) {
@@ -29,16 +31,30 @@ const handleLogin = async () => {
     loading.value = false
   }
 }
+
+async function initProfile() {
+  const updates = {
+      id: sessionStore.user.id,
+      username: username.value,
+      // website: website.value,
+      // avatar_url: avatar_url.value,
+      updated_at: new Date(),
+    }
+
+    let { error } = await supabase.from('profiles').upsert(updates)
+}
 </script>
 
 <template>
     <div id="login">
         <h2>Log In To Your Account</h2>
-        <form @submit.prevent="handleLogin">
+        <form @submit.prevent="handleSignUp">
             <label for="email">Email:</label>
             <input type="text" id="email" autocomplete="email" v-model="email">
-            <label for="password">Password:</label>
-            <input type="password" id="password" autocomplete="current-password" v-model="password">
+            <label for="username">Create Username:</label>
+            <input type="text" id="username" autocomplete="off" v-model="username">
+            <label for="password">Create Password:</label>
+            <input type="password" id="password" autocomplete="new-password" v-model="password">
             <input type="submit" :value="loading.value ? 'Loading...':'Log In'">
         </form>
     </div>

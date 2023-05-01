@@ -3,6 +3,7 @@
 
 <template>
   <main>
-    <RouterLink to="/Login">Log In</RouterLink>
+    <RouterLink to="/login">Log In</RouterLink>
+    <RouterLink to="/register">Register</RouterLink>
   </main>
 </template>
