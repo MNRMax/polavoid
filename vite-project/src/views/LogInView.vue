@@ -1,16 +1,26 @@
 <script setup>
 import {ref} from "vue"
 import { supabase } from '../supabase'
-let loading = false
+import { useSessionStore } from '../stores/session'
+
+const sessionStore = useSessionStore()
+
+let loading = ref(false)
+let email = ref("")
+let password = ref("")
+
 
 const handleLogin = async () => {
   try {
     loading.value = true
-    const { error } = await supabase.auth.signIn({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: email.value,
+      password: password.value
     })
+    sessionStore.session = data.session
+    sessionStore.user = data.user
+    
     if (error) throw error
-    alert('Check your email for the login link!')
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)
@@ -24,12 +34,12 @@ const handleLogin = async () => {
 <template>
     <div id="login">
         <h2>Log In To Your Account</h2>
-        <form @submit.prevent="">
+        <form @submit.prevent="handleLogin">
             <label for="email">Email:</label>
-            <input type="text" id="email" autocomplete="email">
+            <input type="text" id="email" autocomplete="email" v-model="email">
             <label for="password">Password:</label>
-            <input type="password" id="password" autocomplete="current-password">
-            <input type="submit" :value="loading ? 'Loading...':'Log In'">
+            <input type="password" id="password" autocomplete="current-password" v-model="password">
+            <input type="submit" :value="loading.value ? 'Loading...':'Log In'">
         </form>
     </div>
 </template>
