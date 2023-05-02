@@ -2,6 +2,7 @@
 import {ref} from "vue"
 import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
+import router from "@/router";
 
 const sessionStore = useSessionStore()
 
@@ -20,9 +21,8 @@ const handleSignUp = async () => {
     })
     sessionStore.session = data.session
     sessionStore.user = data.user
-    await initProfile()
     if (error) throw error
-    window.location = "/"
+    router.push({ path: 'home' })
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)
@@ -31,28 +31,14 @@ const handleSignUp = async () => {
     loading.value = false
   }
 }
-
-async function initProfile() {
-  const updates = {
-      id: sessionStore.user.id,
-      username: username.value,
-      // website: website.value,
-      // avatar_url: avatar_url.value,
-      updated_at: new Date(),
-    }
-
-    let { error } = await supabase.from('profiles').upsert(updates)
-}
 </script>
 
 <template>
     <div id="login">
-        <h2>Log In To Your Account</h2>
+        <h2>Create An Account</h2>
         <form @submit.prevent="handleSignUp">
             <label for="email">Email:</label>
             <input type="text" id="email" autocomplete="email" v-model="email">
-            <label for="username">Create Username:</label>
-            <input type="text" id="username" autocomplete="off" v-model="username">
             <label for="password">Create Password:</label>
             <input type="password" id="password" autocomplete="new-password" v-model="password">
             <input type="submit" :value="loading.value ? 'Loading...':'Log In'">
@@ -66,6 +52,7 @@ async function initProfile() {
     border: 2px gray solid;
     border-radius: 10px;
     width: fit-content;
+    min-width: 30%;
     margin: auto;
     padding: 2rem;
     padding-top: 1rem;

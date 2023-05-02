@@ -2,12 +2,14 @@
 import {ref} from "vue"
 import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
+import router from "@/router";
 
 const sessionStore = useSessionStore()
 
 let loading = ref(false)
 let email = ref("")
 let password = ref("")
+let self = this
 
 
 const handleLogin = async () => {
@@ -19,9 +21,8 @@ const handleLogin = async () => {
     })
     sessionStore.session = data.session
     sessionStore.user = data.user
-    await initProfile()
     if (error) throw error
-    window.location = "/"
+    router.push('/')
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)
@@ -29,17 +30,6 @@ const handleLogin = async () => {
   } finally {
     loading.value = false
   }
-}
-
-async function initProfile() {
-  const updates = {
-      id: sessionStore.user.id,
-      username: "MNRMax",
-      // website: website.value,
-      // avatar_url: avatar_url.value,
-      updated_at: new Date(),
-    }
-    let { error } = await supabase.from('profiles').upsert(updates)
 }
 </script>
 
@@ -63,6 +53,7 @@ async function initProfile() {
     border-radius: 10px;
     width: fit-content;
     margin: auto;
+    min-width: 30%;
     padding: 2rem;
     padding-top: 1rem;
     background-color: rgb(174, 179, 184);
