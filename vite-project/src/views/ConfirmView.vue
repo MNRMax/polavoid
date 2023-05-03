@@ -11,7 +11,7 @@ let usename = ref("")
 
 async function changeUser() {
   const updates = {
-      id: sessionStore.user.id,
+      id: sessionStore.session.value.user.id,
       username: username.value,
       updated_at: new Date(),
     }

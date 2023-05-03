@@ -22,7 +22,7 @@ const handleSignUp = async () => {
     sessionStore.session = data.session
     sessionStore.user = data.user
     if (error) throw error
-    router.push({ path: 'home' })
+    window.location = "/"
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)

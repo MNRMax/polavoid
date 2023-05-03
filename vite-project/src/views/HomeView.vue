@@ -1,12 +1,18 @@
 <script setup>
 import WelcomeItem from '../components/WelcomeItem.vue';
+import { useSessionStore } from '../stores/session'
 
+const sessionStore = useSessionStore()
 </script>
 
 <template>
-  <main>
-    <RouterLink to="/login">Log In</RouterLink>
-    <RouterLink to="/register">Register</RouterLink>
-    <WelcomeItem/>
-  </main>
+    <main>
+        <RouterLink v-if="sessionStore.session.value" to="/account">Account</RouterLink>
+        <div v-else>
+            <RouterLink to="/login">Log In</RouterLink>
+            <RouterLink to="/register">Register</RouterLink>
+        </div>
+
+        <WelcomeItem />
+    </main>
 </template>

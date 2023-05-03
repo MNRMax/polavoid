@@ -20,9 +20,8 @@ const handleLogin = async () => {
       password: password.value
     })
     sessionStore.session = data.session
-    sessionStore.user = data.user
     if (error) throw error
-    router.push('/')
+    window.location = "/"
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)
