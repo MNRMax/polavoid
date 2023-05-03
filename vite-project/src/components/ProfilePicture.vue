@@ -5,7 +5,8 @@ const props = defineProps({
 </script>
 
 <template>
-    <img :src="props.src" @error="if (this.src != 'error.jpg') this.src = 'error.jpg';">
+    <img v-if="props.src" :src="props.src">
+    <img v-else src="nopfp.png">
 </template>
 
 <style scoped>
