@@ -30,8 +30,8 @@ const router = createRouter({
       component: () => import('../views/ConfirmView.vue')
     },
     {
-      path: '/account',
-      name: 'account',
+      path: '/profile/:id',
+      name: 'profile',
       component: () => import('../views/AccountView.vue')
     }
   ]

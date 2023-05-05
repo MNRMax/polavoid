@@ -38,9 +38,9 @@ const handleSignUp = async () => {
         <h2>Create An Account</h2>
         <form @submit.prevent="handleSignUp">
             <label for="email">Email:</label>
-            <input type="text" id="email" autocomplete="email" v-model="email">
+            <input type="text" id="email" autocomplete="email" v-model="email" required>
             <label for="password">Create Password:</label>
-            <input type="password" id="password" autocomplete="new-password" v-model="password">
+            <input type="password" id="password" autocomplete="new-password" v-model="password" required>
             <input type="submit" :value="loading.value ? 'Loading...':'Log In'">
         </form>
     </div>

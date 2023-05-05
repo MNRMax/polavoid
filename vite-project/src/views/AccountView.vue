@@ -4,16 +4,20 @@ import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
 import displayFollowItem from "../components/displayFollowItem.vue";
+import { useRoute } from 'vue-router'
+const route = useRoute()
 
 const sessionStore = useSessionStore()
 
 const profile = ref()
+const showFollowing = ref(false)
+const showFollowers = ref(false)
 
 async function getProfile() {
     const { data, error } = await supabase
         .from('profiles')
         .select()
-        .eq("id", sessionStore.session.value.user.id)
+        .eq("id", route.params.id)
     profile.value = data[0]
 }
 getProfile()
@@ -33,7 +37,7 @@ const signOut = async () => {
 </script>
 
 <template>
-    <div id="banner">
+    <div v-if="profile" id="banner">
         <ProfilePicture id="pfp" :src="profile.avatar_url" />
         <div id="text">
             <h2>{{ profile.username }}</h2>
@@ -42,12 +46,17 @@ const signOut = async () => {
         </div>
         <div id="followDiv">
             <button id="follow">{{ profile.posts.length }} Posts</button>
-            <button id="follow">{{ profile.followers.length }} Followers</button>
-            <button id="follow">{{ profile.following.length }} Following</button>
-            <button id="followButton" @click="signOut">Sign Out</button>
+            <button id="follow" @click="showFollowers = !showFollowers">{{ profile.followers.length }} Followers</button>
+            <button id="follow" @click="showFollowing = !showFollowing">{{ profile.following.length }} Following</button>
+            <button id="followButton" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
+                Out</button>
+            <button id="followButton" @click="signOut" v-else>Follow</button>
         </div>
     </div>
-    <displayFollowItem :items="profile.following? profile.following : []"/>
+    <displayFollowItem @close="showFollowing = !showFollowing" v-if="showFollowing" header="Following"
+        :items="profile.following" />
+    <displayFollowItem @close="showFollowers = !showFollowers" v-if="showFollowers" header="Followers"
+        :items="profile.followers" />
 </template>
 
 <style scoped>

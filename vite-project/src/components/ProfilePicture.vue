@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
     <img v-if="props.src" :src="props.src">
-    <img v-else src="nopfp.png">
+    <img v-else src="/nopfp.png">
 </template>
 
 <style scoped>
