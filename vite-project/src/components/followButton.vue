@@ -4,7 +4,7 @@ import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 
 const props = defineProps({
-    id: String,
+    thing: String,
 })
 
 const sessionStore = useSessionStore()
@@ -19,10 +19,13 @@ function getBGColor() {
 }
 async function handleFollow() {
     following.value = !following.value
-    const { data, error } = await supabase
-        .from('profiles')
-        .update({ following: arrayAppend('new_element') })
-        .match({ id: userID });
+    if (following.value) {
+    }
+    else {
+        const { error } = await supabase
+            .from('follows')
+            .insert({ user: sessionStore.session.value.user.id, created_at: new Date(), following: props.thing })
+    }
     emit('update')
 }
 </script>
