@@ -5,6 +5,7 @@ import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
 import displayFollowItem from "../components/displayFollowItem.vue";
 import { useRoute } from 'vue-router'
+import FollowButton from "../components/followButton.vue";
 const route = useRoute()
 
 const sessionStore = useSessionStore()
@@ -50,7 +51,7 @@ const signOut = async () => {
             <button id="follow" @click="showFollowing = !showFollowing">{{ profile.following.length }} Following</button>
             <button id="followButton" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
                 Out</button>
-            <button id="followButton" @click="signOut" v-else>Follow</button>
+            <FollowButton @update="getProfile" id="followButton" :id="route.params.id" v-else />
         </div>
     </div>
     <displayFollowItem @close="showFollowing = !showFollowing" v-if="showFollowing" header="Following"
@@ -116,7 +117,6 @@ a {
 
 #followButton {
     height: fit-content;
-    background-color: #00bd7e;
     box-shadow: none;
     font-size: 1.3rem;
     color: aliceblue;
@@ -131,4 +131,5 @@ a {
 
 button:hover {
     cursor: pointer;
-}</style>
+}
+</style>

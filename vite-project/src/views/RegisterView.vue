@@ -22,7 +22,7 @@ const handleSignUp = async () => {
     sessionStore.session = data.session
     sessionStore.user = data.user
     if (error) throw error
-    window.location = "/"
+    alert("Please check your Email to verify your account.")
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message)
@@ -41,7 +41,7 @@ const handleSignUp = async () => {
             <input type="text" id="email" autocomplete="email" v-model="email" required>
             <label for="password">Create Password:</label>
             <input type="password" id="password" autocomplete="new-password" v-model="password" required>
-            <input type="submit" :value="loading.value ? 'Loading...':'Log In'">
+            <input type="submit" :value="loading.value ? 'Loading...':'Register'">
         </form>
     </div>
 </template>
