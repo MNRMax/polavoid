@@ -1,4 +1,5 @@
 <script setup>
+import FollowButton from './followButton.vue';
 import ProfilePicture from './ProfilePicture.vue';
 
 const props = defineProps({
@@ -13,7 +14,7 @@ const props = defineProps({
             <h2>{{ props.profile.username }}</h2>
             <h3>{{ props.profile.full_name }}</h3>
         </div>
-        <button id="followButton" @click="signOut">Following</button>
+        <FollowButton @update="getAllData" id="followButton" :followedUser="profile.id"/>
     </div>
 </template>
 
@@ -46,7 +47,6 @@ h3 {
 button {
     margin-top: 1.25rem;
     height: fit-content;
-    background-color: #00bd7e;
     box-shadow: none;
     font-size: 1.3rem;
     color: aliceblue;

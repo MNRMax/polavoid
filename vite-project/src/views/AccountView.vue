@@ -72,9 +72,9 @@ const signOut = async () => {
             <button id="follow">{{ "0" }} Posts</button>
             <button id="follow" @click="showFollowers = !showFollowers">{{ followers.length }} Followers</button>
             <button id="follow" @click="showFollowing = !showFollowing">{{ following.length }} Following</button>
-            <button id="followButton" class="signout" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
+            <button class="signout" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
                 Out</button>
-            <FollowButton @update="getAllData" id="followButton" :thing="route.params.id" v-else />
+            <FollowButton @update="getAllData" id="followButton" :followedUser="route.params.id" v-else />
         </div>
     </div>
     <displayFollowItem @close="showFollowing = !showFollowing" v-if="showFollowing" header="Following"
@@ -124,6 +124,17 @@ a {
 
 .signout {
     background-color: #00bd7e;
+    height: fit-content;
+    box-shadow: none;
+    font-size: 1.3rem;
+    color: aliceblue;
+    border-style: none;
+    margin-left: 5rem;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: fit-content;
 }
 
 #followDiv {
@@ -140,20 +151,6 @@ a {
     color: aliceblue;
     border-style: none;
     margin-left: 1rem;
-}
-
-#followButton {
-    height: fit-content;
-    box-shadow: none;
-    font-size: 1.3rem;
-    color: aliceblue;
-    border-style: none;
-    margin-left: 5rem;
-    border-radius: 0.3rem;
-    padding: 0.2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    width: fit-content;
 }
 
 button:hover {

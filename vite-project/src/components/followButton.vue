@@ -4,7 +4,7 @@ import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 
 const props = defineProps({
-    thing: String,
+    followedUser: String,
 })
 
 const sessionStore = useSessionStore()
@@ -22,12 +22,12 @@ async function handleFollow() {
         const { error } = await supabase
             .from('follows')
             .delete()
-            .match({ user: sessionStore.session.value.user.id, following: props.thing })
-        }
-        else {
+            .match({ user: sessionStore.session.value.user.id, following: props.followedUser })
+    }
+    else {
         const { error } = await supabase
-        .from('follows')
-        .insert({ user: sessionStore.session.value.user.id, created_at: new Date(), following: props.thing })
+            .from('follows')
+            .insert({ user: sessionStore.session.value.user.id, created_at: new Date(), following: props.followedUser })
     }
     following.value = !following.value
     emit('update')
@@ -36,9 +36,9 @@ async function checkFollowing() {
     const { data, error } = await supabase
         .from('follows')
         .select()
-        .match({ user: sessionStore.session.value.user.id, following: props.thing })
+        .match({ user: sessionStore.session.value.user.id, following: props.followedUser })
     console.log(data)
-    data.length === 0 ? following.value = false : following.value = true 
+    data.length === 0 ? following.value = false : following.value = true
 }
 checkFollowing()
 </script>
@@ -47,4 +47,18 @@ checkFollowing()
     <button :style="getBGColor()" @click="handleFollow">{{ following ? "Following" : "Follow" }}</button>
 </template>
 
-<style scoped></style>
+<style scoped>
+#followButton {
+    height: fit-content;
+    box-shadow: none;
+    font-size: 1.3rem;
+    color: aliceblue;
+    border-style: none;
+    margin-left: 5rem;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: fit-content;
+}
+</style>
