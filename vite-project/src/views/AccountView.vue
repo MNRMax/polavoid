@@ -72,7 +72,7 @@ const signOut = async () => {
             <button id="follow">{{ "0" }} Posts</button>
             <button id="follow" @click="showFollowers = !showFollowers">{{ followers.length }} Followers</button>
             <button id="follow" @click="showFollowing = !showFollowing">{{ following.length }} Following</button>
-            <button id="followButton" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
+            <button id="followButton" class="signout" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
                 Out</button>
             <FollowButton @update="getAllData" id="followButton" :thing="route.params.id" v-else />
         </div>
@@ -122,6 +122,10 @@ a {
     font-size: 1rem;
 }
 
+.signout {
+    background-color: #00bd7e;
+}
+
 #followDiv {
     margin-top: auto;
     margin-bottom: auto;
@@ -155,4 +159,5 @@ a {
 button:hover {
     cursor: pointer;
 }
+
 </style>
