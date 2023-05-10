@@ -74,13 +74,13 @@ const signOut = async () => {
             <button id="follow" @click="showFollowing = !showFollowing">{{ following.length }} Following</button>
             <button id="followButton" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
                 Out</button>
-            <FollowButton @update="getProfile" id="followButton" :thing="route.params.id" v-else />
+            <FollowButton @update="getAllData" id="followButton" :thing="route.params.id" v-else />
         </div>
     </div>
     <displayFollowItem @close="showFollowing = !showFollowing" v-if="showFollowing" header="Following"
-        :items="following" />
+        :items="following.map(x => x.following)" />
     <displayFollowItem @close="showFollowers = !showFollowers" v-if="showFollowers" header="Followers"
-        :items="followers" />
+        :items="followers.map(x => x.user)" />
 </template>
 
 <style scoped>

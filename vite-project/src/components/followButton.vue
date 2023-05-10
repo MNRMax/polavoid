@@ -10,7 +10,7 @@ const props = defineProps({
 const sessionStore = useSessionStore()
 const userID = ref(sessionStore.session.value.user.id)
 
-const following = ref(true)
+const following = ref(false)
 const emit = defineEmits(['update'])
 
 function getBGColor() {
@@ -18,16 +18,29 @@ function getBGColor() {
     return color
 }
 async function handleFollow() {
-    following.value = !following.value
     if (following.value) {
-    }
-    else {
         const { error } = await supabase
             .from('follows')
-            .insert({ user: sessionStore.session.value.user.id, created_at: new Date(), following: props.thing })
+            .delete()
+            .match({ user: sessionStore.session.value.user.id, following: props.thing })
+        }
+        else {
+        const { error } = await supabase
+        .from('follows')
+        .insert({ user: sessionStore.session.value.user.id, created_at: new Date(), following: props.thing })
     }
+    following.value = !following.value
     emit('update')
 }
+async function checkFollowing() {
+    const { data, error } = await supabase
+        .from('follows')
+        .select()
+        .match({ user: sessionStore.session.value.user.id, following: props.thing })
+    console.log(data)
+    data.length === 0 ? following.value = false : following.value = true 
+}
+checkFollowing()
 </script>
 
 <template>

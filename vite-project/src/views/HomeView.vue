@@ -7,7 +7,7 @@ const sessionStore = useSessionStore()
 
 <template>
     <main>
-        <RouterLink v-if="sessionStore.session.value" to="/account">Account</RouterLink>
+        <RouterLink v-if="sessionStore.session.value" :to="`/profile/${sessionStore.session.value.user.id}`">Account</RouterLink>
         <div v-else>
             <RouterLink to="/login">Log In</RouterLink>
             <RouterLink to="/register">Register</RouterLink>
