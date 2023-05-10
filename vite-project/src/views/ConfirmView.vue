@@ -2,13 +2,15 @@
 import { ref } from "vue"
 import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
+import ProfilePicture from "../components/ProfilePicture.vue";
 
 const sessionStore = useSessionStore()
 
 let loading = ref(false)
-let usename = ref(null)
+let username = ref(null)
 let fullname = ref(null)
 let website = ref(null)
+let pfp = ref(null)
 
 
 async function changeUser() {
@@ -18,6 +20,7 @@ async function changeUser() {
             username: username.value,
             full_name: fullname.value,
             website: website.value,
+            avatar_url: pfp.value,
             updated_at: new Date(),
         }
         const { error } = await supabase.from('profiles').upsert(updates).select()
@@ -37,12 +40,21 @@ async function changeUser() {
         <form @submit.prevent="changeUser">
             <label for="username">Username:</label>
             <input type="text" id="username" autocomplete="off" v-model="username" required>
-            <label for="username">Full Name:</label>
+            <label for="fullname">Full Name:</label>
             <input type="text" id="fullname" autocomplete="off" v-model="fullname" required>
-            <label for="username">Website (Optional):</label>
+            <label for="website">Website (Optional):</label>
             <input type="url" id="website" autocomplete="off" v-model="website">
+            <label for="pfp">Avatar (Optional):</label>
+            <input type="url" id="pfp" autocomplete="off" v-model="pfp">
             <input type="submit" value="Sign Up">
         </form>
+    </div>
+    <br/>
+    <div id="preview">
+        <ProfilePicture :src="pfp" id="profilePic"/>
+        <h2 class="name">{{ username }}</h2>
+        <h3>{{ fullname }}</h3>
+        <a>{{ website }}</a>
     </div>
 </template>
 
@@ -86,4 +98,21 @@ input[type="submit"]:hover {
 
 label {
     color: black;
-}</style>
+}
+#preview {
+    margin: auto;
+    text-align: center;
+}
+.name {
+    color: aliceblue;
+    font-size: 3rem;
+}
+h3 {
+    color: aliceblue;
+    font-size: 2rem;
+}
+#profilePic {
+    width: 20rem;
+    height: 20rem;
+}
+</style>
