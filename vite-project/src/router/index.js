@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('../views/ConfirmView.vue')
     },
     {
+      path: '/post',
+      name: 'post',
+      component: () => import('../views/PostView.vue')
+    },
+    {
       path: '/profile/:id',
       name: 'profile',
       component: () => import('../views/AccountView.vue')

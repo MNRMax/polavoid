@@ -37,7 +37,6 @@ async function checkFollowing() {
         .from('follows')
         .select()
         .match({ user: sessionStore.session.value.user.id, following: props.followedUser })
-    console.log(data)
     data.length === 0 ? following.value = false : following.value = true
 }
 checkFollowing()
