@@ -3,6 +3,7 @@ import { ref } from "vue"
 import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
+import { convertToBase64 } from "../base64";
 
 const sessionStore = useSessionStore()
 
@@ -29,8 +30,10 @@ async function changeUser() {
     } catch (error) {
 
     }
-
-
+}
+async function handleImage(event) {
+    const data = await convertToBase64(event.target.files[0])
+    pfp.value = data
 }
 </script>
 
@@ -45,7 +48,8 @@ async function changeUser() {
             <label for="website">Website (Optional):</label>
             <input type="url" id="website" autocomplete="off" v-model="website">
             <label for="pfp">Avatar (Optional):</label>
-            <input type="url" id="pfp" autocomplete="off" v-model="pfp">
+            <input id="pfpImage" type="file" accept="image/*" ref="image" @change="handleImage">
+            <br/>
             <input type="submit" value="Sign Up">
         </form>
     </div>
@@ -83,6 +87,7 @@ input[type="url"] {
 }
 
 input[type="submit"] {
+    margin-top: 1.5rem;
     background-color: #4CAF50;
     color: white;
     border: none;
