@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
@@ -13,6 +13,17 @@ let fullname = ref(null)
 let website = ref(null)
 let pfp = ref(null)
 
+async function getProfile() {
+    const { data, error } = await supabase
+        .from('profiles')
+        .select()
+        .in('id', "b827f7a4-e387-45c8-aa24-cc433e1be7b8")
+    console.log(data)
+    // username.value = data[0].username
+    // fullname.value = data.full_name
+    // website.value = data.website
+    // pfp.value = data.avatar_url
+}
 
 async function changeUser() {
     try {
@@ -35,6 +46,10 @@ async function handleImage(event) {
     const data = await convertToBase64(event.target.files[0])
     pfp.value = data
 }
+
+onMounted(() => {
+  getProfile()
+})
 </script>
 
 <template>
