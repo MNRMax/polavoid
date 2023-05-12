@@ -1,46 +1,62 @@
 <script setup>
 import ProfilePicture from './ProfilePicture.vue';
-import {supabase} from '../supabase'
-import { ref } from 'vue';
+import { supabase } from '../supabase'
+import { ref, onMounted } from 'vue';
 
 const props = defineProps({
     post: Object,
 })
 
-const profile = ref(null)
+const profile = ref(undefined)
 
 async function getProfile() {
+    console.log(props.post.author)
     const { data, error } = await supabase
         .from('profiles')
         .select()
-        .in('id', id)
-    return data
+        .eq('id', props.post.author)
+    profile.value = data[0]
 }
 // getProfile().then(data => {
 //     profile.value = data;
 // })
-console.log(props.post)
+onMounted(() => {
+    getProfile()
+})
 </script>
 
 <template>
-<div id="post">
-    <img id="postImage" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-10.jpg?ssl=1">
-    <ProfilePicture id="pfp" :src="profile.avatar_url"/>
-</div>
+    <div v-if="profile" id="post">
+        <img id="postImage" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-10.jpg?ssl=1">
+        <div id="bottom">
+            <ProfilePicture id="pfp" :src="profile.avatar_url" />
+            <p id="signature">{{ profile.username }}</p>
+        </div>
+    </div>
 </template>
 
 <style>
 #post {
     margin: auto;
-    width: 40%; 
+    width: 40%;
     background-color: aliceblue;
     border: 2px black solid;
     padding: 1rem;
 }
+
 #postImage {
     width: 100%;
 }
+
 #pfp {
-    width: 3rem;
+    width: 5rem;
+    height: 5rem;
+}
+#bottom {
+    display: flex;
+}
+#signature {
+    margin-left: 4rem;
+    font-size: 2rem;
 }
 </style>
