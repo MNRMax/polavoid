@@ -1,10 +1,12 @@
 :root {
+  /*Dark Mode*/
   --black: #1b1626;
   --navy: #2a2640;
   --orange: #f29544;
   --red: #a64e46;
   --purple: #734656;
 
+  /*Light Mode*/
   --dark-brown: #422311;
   --tan: #c18a54;
   --orange: #ee964d;
