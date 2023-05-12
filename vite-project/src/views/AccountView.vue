@@ -27,7 +27,7 @@ async function getFollowing() {
     const { data, error } = await supabase
         .from('follows')
         .select()
-        .eq("user", route.params.id)
+        .eq("user_id", route.params.id)
     following.value = data;
 }
 async function getFollowers() {
@@ -36,6 +36,7 @@ async function getFollowers() {
         .select()
         .eq("following", route.params.id)
     followers.value = data;
+    console.log(followers)
 }
 
 function getAllData() {
@@ -80,7 +81,7 @@ const signOut = async () => {
     <displayFollowItem @close="showFollowing = !showFollowing" v-if="showFollowing" header="Following"
         :items="following.map(x => x.following)" />
     <displayFollowItem @close="showFollowers = !showFollowers" v-if="showFollowers" header="Followers"
-        :items="followers.map(x => x.user)" />
+        :items="followers.map(x => x.user_id)" />
 </template>
 
 <style scoped>

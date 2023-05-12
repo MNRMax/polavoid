@@ -22,12 +22,12 @@ async function handleFollow() {
         const { error } = await supabase
             .from('follows')
             .delete()
-            .match({ user: sessionStore.session.value.user.id, following: props.followedUser })
+            .match({ user_id: sessionStore.session.value.user.id, following: props.followedUser })
     }
     else {
         const { error } = await supabase
             .from('follows')
-            .insert({ user: sessionStore.session.value.user.id, created_at: new Date(), following: props.followedUser })
+            .insert({ user_id: sessionStore.session.value.user.id, created_at: new Date(), following: props.followedUser })
     }
     following.value = !following.value
     emit('update')
@@ -36,7 +36,7 @@ async function checkFollowing() {
     const { data, error } = await supabase
         .from('follows')
         .select()
-        .match({ user: sessionStore.session.value.user.id, following: props.followedUser })
+        .match({ user_id: sessionStore.session.value.user.id, following: props.followedUser })
     data.length === 0 ? following.value = false : following.value = true
 }
 checkFollowing()

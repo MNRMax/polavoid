@@ -1,5 +1,6 @@
 <script setup>
 import WelcomeItem from '../components/WelcomeItem.vue';
+import PostItem from '../components/postItem.vue';
 import { useSessionStore } from '../stores/session'
 
 const sessionStore = useSessionStore()
@@ -13,6 +14,7 @@ const sessionStore = useSessionStore()
             <RouterLink to="/register">Register</RouterLink>
         </div>
 
-        <WelcomeItem />
+        <!-- <WelcomeItem /> -->
+        <PostItem/>
     </main>
 </template>
