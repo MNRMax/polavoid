@@ -17,8 +17,8 @@ async function getProfile() {
         .in('id', props.items)
     return data
 }
-getProfile().then(thing => {
-    profiles.value = thing;
+getProfile().then(data => {
+    profiles.value = data;
 })
 </script>
 
@@ -66,7 +66,7 @@ h1 {
     word-wrap: normal;
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoodata: antialiased;
     position: absolute;
     top: 0;
     right: 2rem;
