@@ -15,9 +15,9 @@
   --off-white: #fefae0;
 
   /*Intentions */
-  --background: var(--dark-brown);
-  --shadows: var(--tan);
-  --button: var(--yellow);
+  --background: var(--black);
+  --shadows: var(--navy);
+  --button: var(--orange);
   --text: var(--off-white);
   --box1: var(--light-blue);
   --box2: var(--orange);

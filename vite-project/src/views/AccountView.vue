@@ -90,7 +90,9 @@ const signOut = async () => {
 }
 
 #pfp {
-    width: 10%;
+    width: 7.5rem;
+    height: 7.5rem;
+    object-fit: cover; 
     margin: 2rem;
 }
 

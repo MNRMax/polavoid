@@ -32,6 +32,7 @@ onMounted(() => {
         <div id="bottom">
             <ProfilePicture id="pfp" :src="profile.avatar_url" />
             <p id="signature">{{ profile.username }}</p>
+            <p id="signature">{{ props.post.caption }}</p>
         </div>
     </div>
 </template>
