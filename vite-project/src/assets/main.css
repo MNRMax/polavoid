@@ -3,8 +3,13 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background-image: url("https://images.unsplash.com/photo-1520699514109-b478c7b48d3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  background-color: var(--background);
+  background: rgb(67, 37, 33);
+  background: linear-gradient(
+    0deg,
+    rgb(194, 65, 48) 0%,
+    rgb(251, 192, 89) 50%,
+    rgb(255, 214, 144) 100%
+  );
 }
 
 #app {
@@ -15,11 +20,11 @@ body {
   font-family: "Pathway Extreme", sans-serif;
 }
 
-a,
-.green {
+a {
   text-decoration: none;
   color: var(--text);
   transition: 0.4s;
+  background-color: --button;
   border-radius: 5px;
   padding: 10px 20px;
 }

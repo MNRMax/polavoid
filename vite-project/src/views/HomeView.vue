@@ -14,7 +14,7 @@ async function getPost() {
 }
 getPost().then((data) => {
   post.value = data;
-  console.log(data)
+  console.log(data);
 });
 </script>
 
@@ -38,13 +38,13 @@ getPost().then((data) => {
 <style>
 .loginRegister {
   text-align: center;
-  margin: auto;
+  margin: 30px;
   font-size: 40px;
 }
 #loginLink {
-  margin: 50px;
+  margin: 70px;
 }
 #registerLink {
-  margin: 50px;
+  margin: 70px;
 }
 </style>
