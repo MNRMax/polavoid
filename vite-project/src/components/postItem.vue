@@ -2,6 +2,7 @@
 import ProfilePicture from './ProfilePicture.vue';
 import { supabase } from '../supabase'
 import { ref, onMounted } from 'vue';
+import '../assets/variables.css'
 
 const props = defineProps({
     post: Object,
@@ -31,6 +32,7 @@ onMounted(() => {
         <div id="bottom">
             <ProfilePicture id="pfp" :src="profile.avatar_url" />
             <p id="signature">{{ profile.username }}</p>
+            <p id="signature">{{ props.post.caption }}</p>
         </div>
     </div>
 </template>
@@ -40,8 +42,8 @@ onMounted(() => {
     margin: auto;
     width: 40%;
     background-color: aliceblue;
-    border: 2px black solid;
-    padding: 1rem;
+    box-shadow: 10px 10px 10px black;
+    padding: 1.5rem;
 }
 
 #postImage {
@@ -51,6 +53,7 @@ onMounted(() => {
 #pfp {
     width: 5rem;
     height: 5rem;
+    padding: 10px;
 }
 #bottom {
     display: flex;
@@ -58,5 +61,7 @@ onMounted(() => {
 #signature {
     margin-left: 4rem;
     font-size: 2rem;
+    color: black;
+    font-family: 'Caveat', cursive;
 }
 </style>

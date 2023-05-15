@@ -1,16 +1,30 @@
 <script setup>
 import { ref } from "vue"
 import convertToBase64 from "../base64"
+import PostItem from "../components/postItem.vue";
+import { useSessionStore } from "../stores/session";
+
+const sessionStore = useSessionStore();
 
 async function handleImage(event) {
     console.log(await convertToBase64(event.target.files[0]))
 }
+
+let post = ref({
+    author: sessionStore.session.value.user.id
+})
 </script>
 
 <template>
-    <input type="file" accept="image/*" ref="image" @change="handleImage">
-    <textarea id="titleText" placeholder="Caption"></textarea>
-    <textarea id="postText" placeholder="What's happening?"></textarea>
+    <div id="leftSide">
+        <h2>Preview</h2>
+        <PostItem :post="post"/>
+    </div>
+    <div id="rightSide">
+        <input type="file" accept="image/*" ref="image" @change="handleImage">
+        <textarea id="titleText" placeholder="Caption"></textarea>
+        <textarea id="postText" placeholder="What's happening?"></textarea>
+    </div>
 </template>
 
 <style scoped>
@@ -32,8 +46,15 @@ textarea {
     width: 90%;
     height: 3rem;
 }
-
-h1 {
-    color: aliceblue;
+#rightSide {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+}
+#leftSide {
+    position: absolute;
+    width: 50%;
+    left: 0;
+    text-align: center;
 }
 </style>

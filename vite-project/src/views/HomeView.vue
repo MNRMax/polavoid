@@ -14,6 +14,7 @@ async function getPost() {
 }
 getPost().then((data) => {
   post.value = data;
+  console.log(data)
 });
 </script>
 
