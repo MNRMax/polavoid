@@ -47,7 +47,7 @@ onMounted(() => {
   margin: auto;
   width: 40%;
   background-color: aliceblue;
-  box-shadow: 20px 10px 10px black;
+  box-shadow: 20px 20px 20px rgb(106, 45, 30);
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
 }
 
