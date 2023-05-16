@@ -1,26 +1,32 @@
 @import url(./variables.css);
 
 body {
-  background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
+  background: rgb(67, 37, 33);
+  background: linear-gradient(
+    0deg,
+    rgb(194, 65, 48) 0%,
+    rgb(251, 192, 89) 50%,
+    rgb(255, 214, 144) 100%
+  );
 }
 
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
   font-family: "Pathway Extreme", sans-serif;
 }
 
-a,
-.green {
+a {
   text-decoration: none;
   color: var(--text);
   transition: 0.4s;
-  border-radius: 50px;
+  background-color: --button;
+  border-radius: 5px;
+  padding: 10px 20px;
 }
 
 @media (hover: hover) {
