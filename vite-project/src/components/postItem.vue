@@ -30,13 +30,14 @@ onMounted(() => {
     <div v-if="profile" id="post">
         <img v-if="props.post.image" id="postImage" :src="props.post.image">
         <img v-else id="postImage" src="noupload.png">
+        <h1 id="caption">{{ props.post.caption }}</h1>
         <div id="bottom">
+          <div id="user">
             <ProfilePicture id="pfp" :src="profile.avatar_url" />
-            <p id="signature">{{ profile.username }}</p>
-            <p id="signature">{{ props.post.caption }}</p>
+            <h2 id="signature">{{ profile.username }}</h2>
+          </div>
         </div>
     </div>
-  </div>
 </template>
 
 <style>
