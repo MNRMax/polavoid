@@ -27,26 +27,32 @@ onMounted(() => {
 </script>
 
 <template>
-    <div v-if="profile" id="post">
-        <img v-if="props.post.image" id="postImage" :src="props.post.image">
-        <img v-else id="postImage" src="noupload.png">
+  <div v-if="profile" id="post">
+    <div class="post">
+      <div class="post-front">
+        <img v-if="props.post.image" id="postImage" :src="props.post.image" />
+        <img v-else id="postImage" src="noupload.png" />
         <h1 id="caption">{{ props.post.caption }}</h1>
-        <div id="bottom">
-          <div id="user">
-            <ProfilePicture id="pfp" :src="profile.avatar_url" />
-            <h2 id="signature">{{ profile.username }}</h2>
-          </div>
+        <div id="user">
+          <ProfilePicture id="pfp" :src="profile.avatar_url" />
+          <h2 id="signature">{{ profile.username }}</h2>
         </div>
+      </div>
+
+      <div class="post-back"><h1>description bah blah</h1></div>
     </div>
+  </div>
 </template>
 
-<style>
-#post {
+<style scoped>
+.post {
   margin: auto;
   width: 40%;
-  background-color: aliceblue;
   box-shadow: 20px 20px 20px rgb(106, 45, 30);
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
+  background-color: aliceblue;
+  perspective: 1000px;
+  position: absolute; 
 }
 
 #postImage {
