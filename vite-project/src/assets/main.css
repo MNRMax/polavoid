@@ -2,14 +2,6 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background: rgb(67, 37, 33);
-  background: linear-gradient(
-    0deg,
-    rgb(194, 65, 48) 0%,
-    rgb(251, 192, 89) 50%,
-    rgb(255, 214, 144) 100%
-  );
 }
 
 #app {
@@ -27,12 +19,6 @@ a {
   background-color: --button;
   border-radius: 5px;
   padding: 10px 20px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: var(--shadows);
-  }
 }
 
 /*@font-face {
