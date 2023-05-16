@@ -28,7 +28,8 @@ onMounted(() => {
 
 <template>
     <div v-if="profile" id="post">
-        <img id="postImage" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/07/ar-10.jpg?ssl=1">
+        <img v-if="props.post.image" id="postImage" :src="props.post.image">
+        <img v-else id="postImage" src="noupload.png">
         <div id="bottom">
             <ProfilePicture id="pfp" :src="profile.avatar_url" />
             <p id="signature">{{ profile.username }}</p>
