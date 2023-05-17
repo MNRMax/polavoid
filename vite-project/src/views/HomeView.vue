@@ -82,7 +82,7 @@ h1 {
 }
 </style>
 
-<style scoped>
+<style>
 body {
   color: var(--text);
   background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
