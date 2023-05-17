@@ -19,7 +19,7 @@ getPost().then((data) => {
 </script>
 
 <template>
-  <main>
+  <main class="introPage">
     <RouterLink
       v-if="sessionStore.session.value"
       :to="`/profile/${sessionStore.session.value.user.id}`"
@@ -80,6 +80,9 @@ h1 {
   border: solid var(--border) 4px;
   margin: 200px;
 }
+</style>
+
+<style scoped>
 body {
   color: var(--text);
   background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
