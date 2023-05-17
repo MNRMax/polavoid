@@ -33,9 +33,12 @@ onMounted(() => {
       <!-- Inside of the card -->
       <div class="post-front">
         <!-- The front of the card -->
-        <img v-if="props.post.image" id="postImage" :src="props.post.image" />
-        <img v-else id="postImage" src="noupload.png" />
-        <!-- Image -->
+        <img
+          v-if="props.post.image"
+          class="postImage"
+          :src="props.post.image"
+        />
+        <img v-else class="postImage" src="noupload.png" />
         <h1 id="caption">{{ props.post.caption }}</h1>
         <!-- caption -->
         <div id="user">
@@ -43,6 +46,7 @@ onMounted(() => {
           <ProfilePicture id="pfp" :src="profile.avatar_url" />
           <h2 id="signature">{{ profile.username }}</h2>
         </div>
+        <!-- Image -->
       </div>
       <div class="post-back"><h1>description bah blah</h1></div>
     </div>
@@ -50,6 +54,9 @@ onMounted(() => {
 </template>
 
 <style scoped>
+#post {
+  width: 800px;
+}
 .post-front {
   /*front of the card*/
   border: 1px solid #f1f1f1;
@@ -57,7 +64,6 @@ onMounted(() => {
 }
 .post-inner {
   margin: auto;
-  width: 40%;
   box-shadow: 20px 20px 20px rgb(106, 45, 30);
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
   background-color: seashell;
@@ -68,17 +74,16 @@ onMounted(() => {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.post-front:hover .post-inner {
+#post:hover .post-inner {
   transform: rotateY(180deg);
 }
 .post-front,
 .post-back {
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
 }
-#postImage {
+.postImage {
   width: 100%;
 }
 #pfp {
