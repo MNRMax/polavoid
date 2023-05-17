@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue"
 import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
-import { convertToBase64 } from "../base64";
+import convertToBase64 from "../base64";
 
 const sessionStore = useSessionStore()
 
