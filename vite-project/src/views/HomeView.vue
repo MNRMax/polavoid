@@ -80,10 +80,15 @@ h1 {
   border: solid var(--border) 4px;
   margin: 200px;
 }
+
+.introPage {
+  background-color: transparent;
+}
+
 </style>
 
 <style scoped>
-body {
+html {
   color: var(--text);
   background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
 }

@@ -52,7 +52,6 @@ onMounted(() => {
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
   background-color: aliceblue;
   perspective: 1000px;
-  position: absolute; 
 }
 
 #postImage {
