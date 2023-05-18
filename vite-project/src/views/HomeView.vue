@@ -4,6 +4,7 @@ import WelcomeItem from "../components/WelcomeItem.vue";
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
+import { RouterLink } from "vue-router"
 
 const sessionStore = useSessionStore();
 const post = ref(undefined);
@@ -40,7 +41,7 @@ getPost().then((data) => {
   </main>
 </template>
 
-<style>
+<style scoped>
 h1 {
   font-size: 60px;
   text-align: center;
@@ -80,9 +81,6 @@ h1 {
   border: solid var(--border) 4px;
   margin: 200px;
 }
-</style>
-
-<style scoped>
 body {
   color: var(--text);
   background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);

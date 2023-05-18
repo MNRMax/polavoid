@@ -30,7 +30,7 @@ onMounted(() => {
     <div v-if="profile" id="post">
         <img v-if="props.post.image" id="postImage" :src="props.post.image">
         <img v-else id="postImage" src="noupload.png">
-        <h1 id="caption">{{ props.post.caption }}</h1>
+        <h2 id="caption">{{ props.post.caption }}</h2>
         <div id="bottom">
           <div id="user">
             <ProfilePicture id="pfp" :src="profile.avatar_url" />
@@ -47,6 +47,7 @@ onMounted(() => {
   background-color: aliceblue;
   box-shadow: 20px 20px 20px rgb(106, 45, 30);
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
+  overflow-wrap: break-word;
 }
 
 #postImage {

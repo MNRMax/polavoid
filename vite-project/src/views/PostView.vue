@@ -3,10 +3,12 @@ import { ref } from "vue"
 import convertToBase64 from "../base64"
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
+import { supabase } from "../supabase";
 
 const sessionStore = useSessionStore();
 
 const caption = ref()
+const description = ref()
 const img = ref(null)
 
 let post = () => {
@@ -21,6 +23,23 @@ async function handleImage(event) {
     const data = await convertToBase64(event.target.files[0])
     img.value = data
 }
+async function handlePost() {
+    try {
+        const post = {
+            author: sessionStore.session.value.user.id,
+            caption: caption.value,
+            description: description.value,
+            tags: [],
+            image: img.value,
+            created_at: new Date(),
+        }
+        const { error } = await supabase.from('posts').insert(post)
+        if (error) throw error
+        window.location = `/profile/${sessionStore.session.value.user.id}`
+    } catch (error) {
+        console.log(error)
+    }
+}
 </script>
 
 <template>
@@ -30,9 +49,10 @@ async function handleImage(event) {
     </div>
     <div id="rightSide">
         <input type="file" accept="image/*" ref="image" @change="handleImage">
-        <textarea id="titleText" placeholder="Caption" v-model="caption"></textarea>
-        <textarea id="postText" placeholder="What's happening?"></textarea>
+        <textarea id="titleText" placeholder="Caption" v-model="caption" maxlength="50"></textarea>
+        <textarea id="postText" placeholder="What's happening?" v-model="description"></textarea>
     </div>
+    <button id="postButton" @click="handlePost">Post</button>
 </template>
 
 <style scoped>
@@ -51,8 +71,22 @@ textarea {
     width: 90%;
 }
 
-#titleText {
+#postButton {
     font-size: 2rem;
+    height: 2.5rem;
+    width: fit-content;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#postButton:hover {
+    cursor: pointer;
+}
+
+#titleText {
+    font-size: 1.7rem;
     width: 90%;
     height: 3rem;
 }
@@ -68,4 +102,5 @@ textarea {
     width: 50%;
     left: 0;
     text-align: center;
-}</style>
+}
+</style>
