@@ -33,11 +33,11 @@ onMounted(() => {
       <div id="front">
         <img v-if="props.post.image" id="postImage" :src="props.post.image" />
         <img v-else id="postImage" src="noupload.png" />
-        <h2 id="caption">{{ props.post.caption }}</h2>
+        <h3 id="caption">{{ props.post.caption }}</h3>
         <div id="bottom">
           <div id="user">
             <ProfilePicture id="pfp" :src="profile.avatar_url" />
-            <h2 id="signature">{{ profile.username }}</h2>
+            <h3 id="signature">{{ profile.username }}</h3>
           </div>
         </div>
       </div>
@@ -51,11 +51,14 @@ onMounted(() => {
 <style scoped>
 #post {
   /* perspective: 1000px; */
-  width: 40%;
+  width: 13%;
+  position: absolute;
+  top: 281px;
+  left: 766px;
 }
 #front,
 #back {
-  height: 54rem;
+  height: 32rem;
   position: absolute;
   margin: auto;
   width: 100%;
@@ -67,6 +70,7 @@ onMounted(() => {
   backface-visibility: hidden;
 }
 #back {
+  color: black;
   transform: rotateY(180deg);
 }
 .flipped {
@@ -76,7 +80,7 @@ onMounted(() => {
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  transform-origin: center center;
+  transform-origin: center;
 }
 #postImage {
   width: 100%;
@@ -85,6 +89,9 @@ onMounted(() => {
   width: 4rem;
   height: 4rem;
   padding: 10px;
+}
+#bottom {
+  margin: -23px;
 }
 #user {
   display: flex;
