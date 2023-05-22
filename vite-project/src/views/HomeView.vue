@@ -4,7 +4,7 @@ import WelcomeItem from "../components/WelcomeItem.vue";
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
-import { RouterLink } from "vue-router"
+import { RouterLink } from "vue-router";
 
 const sessionStore = useSessionStore();
 const post = ref(undefined);

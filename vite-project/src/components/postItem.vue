@@ -29,10 +29,10 @@ onMounted(() => {
 
 <template>
   <div v-if="profile" id="post" @click="flipped = !flipped">
-    <div id="inner" :class="flipped? 'flipped': ''">
+    <div id="inner" :class="flipped ? 'flipped' : ''">
       <div id="front">
-        <img v-if="props.post.image" id="postImage" :src="props.post.image">
-        <img v-else id="postImage" src="noupload.png">
+        <img v-if="props.post.image" id="postImage" :src="props.post.image" />
+        <img v-else id="postImage" src="noupload.png" />
         <h2 id="caption">{{ props.post.caption }}</h2>
         <div id="bottom">
           <div id="user">
@@ -48,12 +48,13 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
+<style scoped>
 #post {
   /* perspective: 1000px; */
   width: 40%;
 }
-#front, #back {
+#front,
+#back {
   height: 54rem;
   position: absolute;
   margin: auto;
@@ -80,24 +81,20 @@ onMounted(() => {
 #postImage {
   width: 100%;
 }
-
 #pfp {
   width: 4rem;
   height: 4rem;
   padding: 10px;
 }
-
 #user {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-
 #signature {
   color: black;
   font-family: "Caveat", cursive;
 }
-
 #caption {
   color: black;
   font-family: "Caveat", cursive;
