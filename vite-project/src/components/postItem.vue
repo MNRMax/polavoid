@@ -51,7 +51,10 @@ onMounted(() => {
 <style scoped>
 #post {
   /* perspective: 1000px; */
-  width: 23%;
+  width: 13%;
+  position: absolute;
+  top: 281px;
+  left: 766px;
 }
 #front,
 #back {
