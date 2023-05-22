@@ -43,16 +43,18 @@ async function handlePost() {
 </script>
 
 <template>
-    <div id="leftSide">
-        <h2>Preview</h2>
-        <PostItem :post="post()" />
-    </div>
-    <div id="rightSide">
-        <input type="file" accept="image/*" ref="image" @change="handleImage">
-        <textarea id="titleText" placeholder="Caption" v-model="caption" maxlength="50"></textarea>
-        <textarea id="postText" placeholder="What's happening?" v-model="description"></textarea>
-    </div>
-    <button id="postButton" @click="handlePost">Post</button>
+    <form @submit.prevent="handlePost">
+        <div id="leftSide">
+            <h2>Preview</h2>
+            <PostItem :post="post()" />
+        </div>
+        <div id="rightSide">
+            <input type="file" accept="image/*" ref="image" @change="handleImage" required>
+            <textarea id="titleText" placeholder="Caption" v-model="caption" maxlength="50" pattern="[a-zA-Z0-9]+" required></textarea>
+            <textarea id="postText" placeholder="What's happening?" v-model="description" required></textarea>
+        </div>
+        <button id="postButton">Post</button>
+    </form>
 </template>
 
 <style scoped>

@@ -42,7 +42,7 @@ onMounted(() => {
         </div>
       </div>
       <div id="back">
-        <h2>h idsufdhasuhdfuhisu hifu hasui hfdih suaihfui hisdhiuaf hiusdhf uhaufh</h2>
+        <h2>{{ props.post.caption }}</h2>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@ onMounted(() => {
 <style>
 #post {
   /* perspective: 1000px; */
-  width: 20%;
+  width: 40%;
 }
 #front, #back {
   height: 54rem;

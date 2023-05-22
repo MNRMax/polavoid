@@ -11,7 +11,7 @@ const post = ref(undefined);
 
 async function getPost() {
   const { data, error } = await supabase.from("posts").select();
-  return data[0];
+  return data[1];
 }
 getPost().then((data) => {
   post.value = data;
