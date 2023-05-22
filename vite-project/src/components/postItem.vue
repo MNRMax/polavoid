@@ -9,6 +9,7 @@ const props = defineProps({
 });
 
 const profile = ref(undefined);
+const flipped = ref(false);
 
 async function getProfile() {
   console.log(props.post.author);
@@ -27,33 +28,55 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="profile" id="post">
-    <div class="post">
-      <div class="post-front">
-        <img v-if="props.post.image" id="postImage" :src="props.post.image" />
-        <img v-else id="postImage" src="noupload.png" />
-        <h1 id="caption">{{ props.post.caption }}</h1>
-        <div id="user">
-          <ProfilePicture id="pfp" :src="profile.avatar_url" />
-          <h2 id="signature">{{ profile.username }}</h2>
+  <div v-if="profile" id="post" @click="flipped = !flipped">
+    <div id="inner" :class="flipped? 'flipped': ''">
+      <div id="front">
+        <img v-if="props.post.image" id="postImage" :src="props.post.image">
+        <img v-else id="postImage" src="noupload.png">
+        <h2 id="caption">{{ props.post.caption }}</h2>
+        <div id="bottom">
+          <div id="user">
+            <ProfilePicture id="pfp" :src="profile.avatar_url" />
+            <h2 id="signature">{{ profile.username }}</h2>
+          </div>
         </div>
       </div>
-
-      <div class="post-back"><h1>description bah blah</h1></div>
+      <div id="back">
+        <h2>{{ props.post.caption }}</h2>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.post {
-  margin: auto;
+<style>
+#post {
+  /* perspective: 1000px; */
   width: 40%;
+}
+#front, #back {
+  height: 54rem;
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  background-color: aliceblue;
   box-shadow: 20px 20px 20px rgb(106, 45, 30);
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
-  background-color: aliceblue;
-  perspective: 1000px;
+  overflow-wrap: break-word;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
 }
-
+#back {
+  transform: rotateY(180deg);
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+#inner {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
 #postImage {
   width: 100%;
 }

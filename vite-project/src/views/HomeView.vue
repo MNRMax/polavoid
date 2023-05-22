@@ -4,13 +4,14 @@ import WelcomeItem from "../components/WelcomeItem.vue";
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
+import { RouterLink } from "vue-router"
 
 const sessionStore = useSessionStore();
 const post = ref(undefined);
 
 async function getPost() {
   const { data, error } = await supabase.from("posts").select();
-  return data[0];
+  return data[1];
 }
 getPost().then((data) => {
   post.value = data;
@@ -40,7 +41,7 @@ getPost().then((data) => {
   </main>
 </template>
 
-<style>
+<style scoped>
 h1 {
   font-size: 60px;
   text-align: center;
@@ -80,15 +81,7 @@ h1 {
   border: solid var(--border) 4px;
   margin: 200px;
 }
-
-.introPage {
-  background-color: transparent;
-}
-
-</style>
-
-<style scoped>
-html {
+body {
   color: var(--text);
   background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
 }
