@@ -41,7 +41,7 @@ getPost().then((data) => {
   </main>
 </template>
 
-<style scoped>
+<style>
 h1 {
   font-size: 60px;
   text-align: center;
@@ -80,9 +80,5 @@ h1 {
   border-radius: 10px;
   border: solid var(--border) 4px;
   margin: 200px;
-}
-body {
-  color: var(--text);
-  background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
 }
 </style>

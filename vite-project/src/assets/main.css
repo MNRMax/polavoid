@@ -20,7 +20,11 @@ a {
   border-radius: 5px;
   padding: 10px 20px;
 }
-
+body {
+  height: 100vh;
+  color: var(--text);
+  background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
+}
 /*@font-face {
   font-family: 'Pathway Extreme', sans-serif;
   font-style: normal;
