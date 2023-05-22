@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="profile" id="post" @click="flipped = !flipped">
+  <div v-if="profile" id="post1" @click="flipped = !flipped">
     <div id="inner" :class="flipped ? 'flipped' : ''">
       <div id="front">
         <img v-if="props.post.image" id="postImage" :src="props.post.image" />
@@ -49,12 +49,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
-#post {
-  /* perspective: 1000px; */
+#post1 {
   width: 13%;
   position: absolute;
   top: 281px;
-  left: 766px;
+  left: 780px;
 }
 #front,
 #back {
