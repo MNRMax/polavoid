@@ -52,21 +52,21 @@ onMounted(() => {
 #post1 {
   width: 13%;
   position: absolute;
-  top: 281px;
-  left: 780px;
+  top: 30%;
+  left: 40.5%;
 }
 #front,
 #back {
-  height: 32rem;
+  height: 29rem;
   position: absolute;
   margin: auto;
   width: 100%;
   background-color: aliceblue;
-  box-shadow: 20px 20px 20px rgb(106, 45, 30);
-  padding: 1.5rem 1.5rem 0.2rem 1.5rem;
+  box-shadow: 20px 20px 20px rgba(67, 35, 27, 0.379);
   overflow-wrap: break-word;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  padding: 20px 20px 20px 20px;
 }
 #back {
   color: black;
@@ -76,6 +76,7 @@ onMounted(() => {
   transform: rotateY(180deg);
 }
 #inner {
+  display: flex;
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
@@ -95,7 +96,7 @@ onMounted(() => {
 #user {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: left;
 }
 #signature {
   color: black;
