@@ -66,7 +66,7 @@ onMounted(() => {
   overflow-wrap: break-word;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
 }
 #back {
   color: black;
