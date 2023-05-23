@@ -87,12 +87,4 @@ input[type="submit"]:hover {
 label {
     color: black;
 }
-
-section {
-  background-color: black;
-  height: 100vh;
-  width: 100vw;
-  margin: 0px;
-
-}
 </style>
