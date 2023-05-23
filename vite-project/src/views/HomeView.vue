@@ -39,13 +39,21 @@ getPost().then((data) => {
       <h1>Picture Prose</h1>
       <img src="String-lights.png" alt="string lights" id="stringy" />
     </div>
-
-    <PostItem v-if="post" :post="post" />
+    <div class="fyp">
+      <PostItem v-if="post" :post="post" />
+      <PostItem v-if="post" :post="post" />
+      <PostItem v-if="post" :post="post" />
+    </div>
   </main>
 </body>
 </template>
 
 <style>
+.fyp {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
 h1 {
   font-size: 60px;
   text-align: center;

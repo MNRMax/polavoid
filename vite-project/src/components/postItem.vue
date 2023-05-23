@@ -51,13 +51,15 @@ onMounted(() => {
 <style scoped>
 #post {
   /* perspective: 1000px; */
-  width: 13%;
-  position: absolute;
+  width: 18rem;
+  /* position: absolute;
   top: 281px;
-  left: 766px;
+  left: 766px; */
 }
 #front,
 #back {
+  top: 0;
+  left: 0;
   height: 32rem;
   position: absolute;
   margin: auto;
@@ -65,6 +67,7 @@ onMounted(() => {
   background-color: aliceblue;
   box-shadow: 20px 20px 20px rgb(106, 45, 30);
   padding: 1.5rem 1.5rem 0.2rem 1.5rem;
+  /* padding: 1rem; */
   overflow-wrap: break-word;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
@@ -80,7 +83,6 @@ onMounted(() => {
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  transform-origin: center;
 }
 #postImage {
   width: 100%;
