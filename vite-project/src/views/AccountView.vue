@@ -61,7 +61,7 @@ const signOut = async () => {
 }
 </script>
 
-<template>
+<template class="page">
     <div v-if="profile" id="banner">
         <ProfilePicture id="pfp" :src="profile.avatar_url" />
         <div id="text">
@@ -85,6 +85,12 @@ const signOut = async () => {
 </template>
 
 <style scoped>
+
+.page {
+  color: var(--text);
+  background: white;
+}
+
 #text {
     display: block;
 }

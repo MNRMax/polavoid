@@ -1,7 +1,7 @@
 <script setup>
-import {ref} from "vue"
-import { supabase } from '../supabase'
-import { useSessionStore } from '../stores/session'
+import {ref} from "vue";
+import { supabase } from '../supabase';
+import { useSessionStore } from '../stores/session';
 import router from "@/router";
 
 const sessionStore = useSessionStore()
@@ -33,6 +33,7 @@ const handleLogin = async () => {
 </script>
 
 <template>
+  <section>
     <div id="login">
         <h2>Log In To Your Account</h2>
         <form @submit.prevent="handleLogin">
@@ -43,19 +44,21 @@ const handleLogin = async () => {
             <input type="submit" :value="loading.value ? 'Loading...':'Log In'">
         </form>
     </div>
+  </section>
 </template>
 
 <style scoped>
 #login {
+  color: var(--dark-brown);
     text-align: center;
-    border: 2px gray solid;
+    box-shadow: 10px 10px var(--border);
     border-radius: 10px;
     width: fit-content;
     margin: auto;
     min-width: 30%;
     padding: 2rem;
     padding-top: 1rem;
-    background-color: rgb(174, 179, 184);
+    background-color: var(--box1);
 }
 input[type="text"],
 input[type="password"] {
@@ -69,7 +72,7 @@ input[type="password"] {
     width: 90%;
 }
 input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: var(--button);
   color: white;
   border: none;
   padding: 10px;
@@ -79,9 +82,17 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #3e8e41;
+  background-color: var(--button);
 }
 label {
     color: black;
+}
+
+section {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+
 }
 </style>

@@ -80,7 +80,6 @@ onMounted(() => {
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  transform-origin: center;
 }
 #postImage {
   width: 100%;
