@@ -20,9 +20,6 @@ getPost().then((data) => {
 </script>
 
 <template>
-  <body>
-    <input type ="radio" name="position" checked/>
-    <input type ="radio" name="position" />
   <main class="introPage">
     <RouterLink
       v-if="sessionStore.session.value"
@@ -45,7 +42,6 @@ getPost().then((data) => {
       <PostItem v-if="post" :post="post" />
     </div>
   </main>
-</body>
 </template>
 
 <style>
