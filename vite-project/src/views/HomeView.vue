@@ -38,8 +38,6 @@ getPost().then((data) => {
     </div>
     <div class="fyp">
       <PostItem v-if="post" :post="post" />
-      <PostItem v-if="post" :post="post" />
-      <PostItem v-if="post" :post="post" />
     </div>
   </main>
 </template>
@@ -54,7 +52,7 @@ h1 {
   font-size: 60px;
   text-align: center;
   color: var(--border);
-  background-color: var(--golden);
+  background-color: var(--button);
   border-radius: 10px;
   width: 500px;
   border: solid var(--border) 4px;
@@ -77,14 +75,14 @@ h1 {
   font-size: 40px;
 }
 
-#loginLink {
-  background-color: var(--golden);
+#loginLink #registerLink {
+  background-color: var(--button);
   border-radius: 10px;
   border: solid var(--border) 4px;
   margin: 200px;
 }
 #registerLink {
-  background-color: var(--golden);
+  background-color: var(--button);
   border-radius: 10px;
   border: solid var(--border) 4px;
   margin: 200px;

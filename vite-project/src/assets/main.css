@@ -11,19 +11,19 @@ body {
   font-weight: normal;
   font-family: "Pathway Extreme", sans-serif;
 }
-
 a {
   text-decoration: none;
   color: var(--text);
   transition: 0.4s;
   background-color: --button;
   border-radius: 5px;
-  padding: 10px 20px;
 }
 body {
   height: 100vh;
   color: var(--text);
-  background: linear-gradient(0deg, #2f1616 0%, #905d23 100%);
+  background: linear-gradient(0deg, var(--accent) 0%, var(--background) 100%);
+  /*DARK*/
+  /* background: linear-gradient(0deg, #180557 0%, #7b0f62 70%, black 100%); */
 }
 /*@font-face {
   font-family: 'Pathway Extreme', sans-serif;

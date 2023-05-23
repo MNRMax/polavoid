@@ -13,10 +13,10 @@
   --light-blue: #7dd1eb;
   --yellow: #f0d274;
   --off-white: #fefae0;
-  --golden: #905d23;
+  --golden: #c27b2a;
 
   /*Intentions */
-  --background: var(--dark-brown);
+  --background: var(--redOrange);
   --accent: var(--golden);
   --button: var(--orange);
   --text: var(--off-white);
