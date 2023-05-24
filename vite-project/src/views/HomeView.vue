@@ -75,12 +75,7 @@ h1 {
   font-size: 40px;
 }
 
-#loginLink #registerLink {
-  background-color: var(--button);
-  border-radius: 10px;
-  border: solid var(--border) 4px;
-  margin: 200px;
-}
+#loginLink,
 #registerLink {
   background-color: var(--button);
   border-radius: 10px;
