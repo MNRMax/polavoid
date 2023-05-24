@@ -16,7 +16,7 @@ const props = defineProps({
             <h2>{{ props.user.username }}</h2>
             <h3>{{ props.user.full_name }}</h3>
         </div>
-        <FollowButton v-if="props.user.id !== sessionStore.session.value.user.id" id="followButton" :followed-user="props.user.id"/>
+        <FollowButton id="followButton" :followed-user="props.user.id"/>
     </div>
 </template>
 

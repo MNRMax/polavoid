@@ -43,7 +43,7 @@ checkFollowing()
 </script>
 
 <template>
-    <button :style="getBGColor()" @click="handleFollow">{{ following ? "Following" : "Follow" }}</button>
+    <button v-if="props.followedUser !== sessionStore.session.value.user.id" :style="getBGColor()" @click="handleFollow">{{ following ? "Following" : "Follow" }}</button>
 </template>
 
 <style scoped>
