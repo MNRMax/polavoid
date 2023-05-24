@@ -53,16 +53,17 @@ const handleLogin = async () => {
 
 <style scoped>
 #login {
-  color: var(--dark-brown);
+  color: var(--shadow);
   text-align: center;
-  box-shadow: 10px 10px var(--border);
+  box-shadow: 5px 5px var(--shadow);
   border-radius: 10px;
   width: fit-content;
   margin: auto;
+  margin-top: 18%;
   min-width: 30%;
   padding: 2rem;
   padding-top: 1rem;
-  background-color: var(--box1);
+  background-color: var(--border);
 }
 input[type="text"],
 input[type="password"] {
