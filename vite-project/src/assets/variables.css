@@ -8,21 +8,21 @@
 
   /*Light Mode*/
   --dark-brown: #2f1616;
-  --redOrange: rgb(194, 65, 48);
+  --red-orange: rgb(194, 65, 48);
   --orange: rgb(216, 108, 49);
-  --light-blue: #7dd1eb;
+  --dark-yellow: #deb74c;
   --yellow: #f0d274;
   --off-white: #fefae0;
-  --golden: #905d23;
+  --golden: #c27b2a;
 
   /*Intentions */
-  --background: var(--dark-brown);
-  --accent: var(--golden)
-  --shadows: var(--redOrange);
+  --background: var(--red-orange);
+  --accent: var(--golden);
   --button: var(--orange);
   --text: var(--off-white);
-  --box1: var(--light-blue);
-  --border: var(--yellow);
+  --box1: var(--yellow);
+  --shadow: var(--dark-brown);
+  --border: var(--dark-yellow);
 
   /*Typography */
   --h1: 7rem;
