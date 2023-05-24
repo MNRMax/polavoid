@@ -33,7 +33,7 @@ getPost().then((data) => {
 
     <!-- <WelcomeItem /> -->
     <div class="intro">
-      <h1>Picture Prose</h1>
+      <h1>Polavoid</h1>
       <img src="String-lights.png" alt="string lights" id="stringy" />
     </div>
     <div class="fyp">
@@ -54,7 +54,7 @@ h1 {
   color: var(--border);
   background-color: var(--button);
   border-radius: 10px;
-  width: 500px;
+  width: 400px;
   border: solid var(--border) 4px;
   margin: auto;
 }

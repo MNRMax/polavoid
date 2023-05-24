@@ -5,6 +5,7 @@
   --orange: #f29544;
   --red: #a64e46;
   --purple: #734656;
+  --blue: rgb(82, 137, 255);
 
   /*Light Mode*/
   --dark-brown: #2f1616;
@@ -18,9 +19,9 @@
   /*Intentions */
   --background: var(--red-orange);
   --accent: var(--golden);
-  --button: var(--orange);
+  --button: var(--blue);
   --text: var(--off-white);
-  --box1: var(--yellow);
+  --box1: var(--red);
   --shadow: var(--dark-brown);
   --border: var(--dark-yellow);
 
