@@ -50,14 +50,14 @@ onMounted(() => {
 
 <style scoped>
 #post1 {
-  width: 13%;
+  width: 15%;
   position: absolute;
-  top: 30%;
+  top: 32%;
   left: 40.5%;
 }
 #front,
 #back {
-  height: 29rem;
+  height: 30rem;
   position: absolute;
   margin: auto;
   width: 100%;
@@ -87,7 +87,7 @@ onMounted(() => {
 #pfp {
   width: 4rem;
   height: 4rem;
-  padding: 10px;
+  padding: 15px;
 }
 #bottom {
   margin: -23px;
