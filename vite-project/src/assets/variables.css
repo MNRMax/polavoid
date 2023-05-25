@@ -3,9 +3,9 @@
   --black: #1b1626;
   --navy: #2a2640;
   --orange: #f29544;
-  --red: #a64e46;
-  --purple: #734656;
-  --blue: rgb(82, 137, 255);
+  --magneta: #e436cc;
+  --purple: #8215b9;
+  --blue: rgb(88, 62, 241);
 
   /*Light Mode*/
   --dark-brown: #2f1616;
@@ -13,16 +13,16 @@
   --orange: rgb(216, 108, 49);
   --dark-yellow: #deb74c;
   --yellow: #f0d274;
-  --off-white: #fefae0;
+  --off-white: #d5d3eb;
   --golden: #c27b2a;
 
   /*Intentions */
   --background: var(--red-orange);
   --accent: var(--golden);
-  --button: var(--blue);
+  --button: var(--magneta);
   --text: var(--off-white);
-  --box1: var(--red);
-  --shadow: var(--dark-brown);
+  --box1: var(--blue);
+  --shadow: var(--purple);
   --border: var(--dark-yellow);
 
   /*Typography */

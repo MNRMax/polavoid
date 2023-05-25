@@ -51,11 +51,11 @@ getPost().then((data) => {
 h1 {
   font-size: 60px;
   text-align: center;
-  color: var(--border);
-  background-color: var(--button);
+  color: var(--text);
+  background-color: var(--box1);
   border-radius: 10px;
   width: 400px;
-  border: solid var(--border) 4px;
+  border: solid var(--text) 5px;
   margin: auto;
 }
 .intro {
