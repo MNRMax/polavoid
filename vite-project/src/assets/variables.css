@@ -13,7 +13,7 @@
   --orange: rgb(216, 108, 49);
   --dark-yellow: #deb74c;
   --yellow: #f0d274;
-  --off-white: #d5d3eb;
+  --off-white: #efeeff;
   --golden: #c27b2a;
 
   /*Intentions */
@@ -23,8 +23,7 @@
   --text: var(--off-white);
   --box1: var(--blue);
   --shadow: var(--purple);
-  --border: var(--dark-yellow);
-
+  
   /*Typography */
   --h1: 7rem;
   --h2: 5rem;
