@@ -50,7 +50,7 @@ const handleSignUp = async () => {
 #login {
   color: var(--text);
   text-align: center;
-  box-shadow: 10px 10px var(--shadow);
+  box-shadow: 10px 10px var(--box1);
   border-radius: 10px;
   width: fit-content;
   margin: auto;
@@ -58,7 +58,7 @@ const handleSignUp = async () => {
   min-width: 30%;
   padding: 2rem;
   padding-top: 1rem;
-  background-color: var(--box1);
+  background-color: var(--shadow);
 }
 input[type="text"],
 input[type="password"] {
