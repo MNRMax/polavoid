@@ -42,7 +42,7 @@ onMounted(() => {
         </div>
       </div>
       <div id="back">
-        <h2>{{ props.post.caption }}</h2>
+        <h2>{{ props.post.description }}</h2>
       </div>
     </div>
   </div>
@@ -50,14 +50,15 @@ onMounted(() => {
 
 <style scoped>
 #post1 {
-  width: 15%;
+  width: 13vw;
   position: absolute;
   top: 32%;
   left: 40.5%;
 }
 #front,
 #back {
-  height: 30rem;
+  /* height: 29rem; */
+  height: 21vw;
   position: absolute;
   margin: auto;
   width: 100%;
