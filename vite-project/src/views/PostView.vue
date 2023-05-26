@@ -9,7 +9,8 @@ const sessionStore = useSessionStore();
 
 const caption = ref()
 const description = ref()
-const img = ref(null)
+const img = ref(null)   
+const tags = ref()   
 
 let post = () => {
     return {
@@ -29,7 +30,7 @@ async function handlePost() {
             author: sessionStore.session.value.user.id,
             caption: caption.value,
             description: description.value,
-            tags: [],
+            tags: tags.value.split(" "),
             image: img.value,
             created_at: new Date(),
         }
@@ -50,8 +51,9 @@ async function handlePost() {
         </div>
         <div id="rightSide">
             <input type="file" accept="image/*" ref="image" @change="handleImage" required>
-            <textarea id="titleText" placeholder="Caption" v-model="caption" maxlength="50" pattern="[a-zA-Z0-9]+" required></textarea>
-            <textarea id="postText" placeholder="What's happening?" v-model="description" required></textarea>
+            <textarea id="titleText" placeholder="Caption" v-model="caption" maxlength="50" pattern="[a-zA-Z0-9]+" rows="1" required></textarea>
+            <textarea id="postText" placeholder="What's happening?" v-model="description" rows="3" required></textarea>
+            <textarea id="tagsText" placeholder="Tags (Space Sepereated)" v-model="tags" rows="1" required></textarea>
         </div>
         <button id="postButton">Post</button>
     </form>
@@ -90,7 +92,10 @@ textarea {
 #titleText {
     font-size: 1.7rem;
     width: 90%;
-    height: 3rem;
+}
+#tagsText {
+    font-size: 1.7rem;
+    width: 90%;
 }
 
 #rightSide {
