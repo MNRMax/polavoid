@@ -72,14 +72,16 @@ h1 {
   z-index: 4;
   text-align: center;
   margin: 30px;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #loginLink,
 #registerLink {
   background-color: var(--button);
   border-radius: 10px;
-  border: solid var(--border) 4px;
+  border: 3px solid var(--text);
   margin: 200px;
+  padding: 5px;
+  
 }
 </style>

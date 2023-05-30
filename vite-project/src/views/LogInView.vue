@@ -55,7 +55,7 @@ const handleLogin = async () => {
 #login {
   color: var(--text);
   text-align: center;
-  box-shadow: 10px 10px var(--shadow);
+  border: 5px solid var(--shadow);
   border-radius: 10px;
   width: fit-content;
   margin: auto;

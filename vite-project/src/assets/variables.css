@@ -1,9 +1,9 @@
 :root {
   /*Dark Mode*/
   --black: #1b1626;
-  --navy: #2a2640;
+  --navy: rgb(0, 2, 128);
   --orange: #f29544;
-  --magneta: #e436cc;
+  --magneta: #d72e80;
   --purple: #8215b9;
   --blue: rgb(88, 62, 241);
 
@@ -17,7 +17,7 @@
   --golden: #c27b2a;
 
   /*Intentions */
-  --background: var(--red-orange);
+  --background: var(--navy);
   --accent: var(--golden);
   --button: var(--magneta);
   --text: var(--off-white);
