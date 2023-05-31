@@ -87,7 +87,7 @@ onMounted(() => {
 #post {
   width: 13vw;
   position: absolute;
-  top: 30%;
+  top: 32%;
   left: 40.5%;
 }
 
@@ -104,7 +104,7 @@ onMounted(() => {
   -webkit-backface-visibility: hidden;
   /* Safari */
   backface-visibility: hidden;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
 }
 
 #back {
@@ -130,7 +130,7 @@ onMounted(() => {
 #pfp {
   width: 4rem;
   height: 4rem;
-  padding: 10px;
+  padding: 15px;
 }
 
 #bottom {

@@ -16,18 +16,17 @@ const props = defineProps({
             <h2>{{ props.user.username }}</h2>
             <h3>{{ props.user.full_name }}</h3>
         </div>
-        <FollowButton id="followButton" :followed-user="props.user.id"/>
+        <FollowButton id="followButton" style="background-color: var(--button);" :followed-user="props.user.id"/>
     </div>
 </template>
 
 <style scoped>
 #card {
     position: relative;
-    background-color: rgb(44, 44, 44);
+    background-color: var(--background);
     padding: 2rem;
     display: flex;
-    box-shadow: 20px 20px 20px rgb(106, 45, 30);
-    border: 2px black solid;
+    border: 2px var(--text) solid;
     border-radius: 10px;
     margin-bottom: 2rem;
 }
@@ -50,4 +49,5 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
 }
+
 </style>

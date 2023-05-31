@@ -53,9 +53,9 @@ const handleLogin = async () => {
 
 <style scoped>
 #login {
-  color: var(--shadow);
+  color: var(--text);
   text-align: center;
-  box-shadow: 5px 5px var(--shadow);
+  border: 5px solid var(--shadow);
   border-radius: 10px;
   width: fit-content;
   margin: auto;
@@ -63,7 +63,7 @@ const handleLogin = async () => {
   min-width: 30%;
   padding: 2rem;
   padding-top: 1rem;
-  background-color: var(--border);
+  background-color: var(--box1);
 }
 input[type="text"],
 input[type="password"] {
@@ -88,7 +88,11 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--button);
 }
+input:-webkit-autofill{
+  background-color: rgb(255, 227, 253) !important;
+  background-image: none !important;
+}
 label {
-  color: black;
+  color: var(--text);
 }
 </style>
