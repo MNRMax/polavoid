@@ -52,7 +52,7 @@ onMounted(() => {
 #post1 {
   width: 13vw;
   position: absolute;
-  top: 30%;
+  top: 32%;
   left: 40.5%;
 }
 #front,
@@ -67,7 +67,7 @@ onMounted(() => {
   overflow-wrap: break-word;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
 }
 #back {
   color: black;
@@ -88,7 +88,7 @@ onMounted(() => {
 #pfp {
   width: 4rem;
   height: 4rem;
-  padding: 10px;
+  padding: 15px;
 }
 #bottom {
   margin: -23px;

@@ -33,7 +33,7 @@ getPost().then((data) => {
 
     <!-- <WelcomeItem /> -->
     <div class="intro">
-      <h1>Picture Prose</h1>
+      <h1>Polavoid</h1>
       <img src="String-lights.png" alt="string lights" id="stringy" />
     </div>
     <div class="fyp">
@@ -51,11 +51,11 @@ getPost().then((data) => {
 h1 {
   font-size: 60px;
   text-align: center;
-  color: var(--border);
-  background-color: var(--button);
+  color: var(--text);
+  background-color: var(--box1);
   border-radius: 10px;
-  width: 500px;
-  border: solid var(--border) 4px;
+  width: 400px;
+  border: solid var(--text) 5px;
   margin: auto;
 }
 .intro {
@@ -72,14 +72,16 @@ h1 {
   z-index: 4;
   text-align: center;
   margin: 30px;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #loginLink,
 #registerLink {
   background-color: var(--button);
   border-radius: 10px;
-  border: solid var(--border) 4px;
+  border: 3px solid var(--text);
   margin: 200px;
+  padding: 5px;
+  
 }
 </style>

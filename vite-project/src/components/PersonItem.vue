@@ -23,11 +23,11 @@ const props = defineProps({
 <style scoped>
 #card {
     position: relative;
-    background-color: rgb(44, 44, 44);
+    background-color: var(--background);
     padding: 2rem;
     display: flex;
     box-shadow: 20px 20px 20px rgb(106, 45, 30);
-    border: 2px black solid;
+    border: 2px var(--text) solid;
     border-radius: 10px;
     margin-bottom: 2rem;
 }

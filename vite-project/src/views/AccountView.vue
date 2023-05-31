@@ -85,10 +85,8 @@ const signOut = async () => {
 </template>
 
 <style scoped>
-
 .page {
   color: var(--text);
-  background: white;
 }
 
 #text {
@@ -105,8 +103,8 @@ const signOut = async () => {
 #banner {
     display: flex;
     width: 90%;
-    background-color: rgb(48, 48, 48);
-    border: 2px solid black;
+    background-color: var(--background);
+    border: 3px solid var(--text);
     border-radius: 10px;
     margin: auto;
 }
@@ -132,7 +130,7 @@ a {
 }
 
 .signout {
-    background-color: #00bd7e;
+    background-color: var(--button);
     height: fit-content;
     box-shadow: none;
     font-size: 1.3rem;
