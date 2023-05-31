@@ -34,7 +34,7 @@ getPost().then((data) => {
     <!-- <WelcomeItem /> -->
     <div class="intro">
       <h1>Polavoid</h1>
-      <img src="String-lights.png" alt="string lights" id="stringy" />
+      <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
     </div>
     <div class="fyp">
       <PostItem v-if="post" :post="post" />
@@ -63,10 +63,10 @@ h1 {
 }
 #stringy {
   z-index: -1;
-  width: 100%;
+  width: 130%;
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: -12.5%;
+  top: -190vh;
 }
 .loginRegister {
   z-index: 4;
@@ -82,6 +82,5 @@ h1 {
   border: 3px solid var(--text);
   margin: 200px;
   padding: 5px;
-  
 }
 </style>
