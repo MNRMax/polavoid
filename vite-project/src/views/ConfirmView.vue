@@ -80,13 +80,13 @@ onMounted(() => {
 <style scoped>
 #login {
     text-align: center;
-    border: 2px gray solid;
+    border: 2px var(--shadow) solid;
     border-radius: 10px;
     width: fit-content;
     margin: auto;
     padding: 2rem;
     padding-top: 1rem;
-    background-color: rgb(174, 179, 184);
+    background-color: var(--box1);
 }
 
 input[type="text"],
@@ -103,8 +103,8 @@ input[type="url"] {
 
 input[type="submit"] {
     margin-top: 1.5rem;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button);
+    color: var(--text);
     border: none;
     padding: 10px;
     font-size: 16px;
@@ -113,22 +113,22 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #3e8e41;
+    background-color: var(--shadow);
 }
 
 label {
-    color: black;
+    color: var(--text);
 }
 #preview {
     margin: auto;
     text-align: center;
 }
 .name {
-    color: aliceblue;
+    color: var(--text);
     font-size: 3rem;
 }
 h3 {
-    color: aliceblue;
+    color: var(--text)e;
     font-size: 2rem;
 }
 #profilePic {
