@@ -51,7 +51,7 @@ checkFollowing()
     height: fit-content;
     box-shadow: none;
     font-size: 1.3rem;
-    color: aliceblue;
+    color: var(--text);
     border-style: none;
     margin-left: 5rem;
     border-radius: 0.3rem;
@@ -59,5 +59,6 @@ checkFollowing()
     padding-left: 1rem;
     padding-right: 1rem;
     width: fit-content;
+    background-color: var(--button);
 }
 </style>
