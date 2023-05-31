@@ -24,7 +24,7 @@ a {
 }
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: scroll;
   height: 100vh;
   color: var(--text);
   /*  background: linear-gradient(0deg, var(--accent) 0%, var(--background) 100%);*/
