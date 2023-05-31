@@ -155,7 +155,7 @@ a {
     background-color: transparent;
     box-shadow: none;
     font-size: 1.3rem;
-    color: aliceblue;
+    color: var(--text);
     border-style: none;
     margin-left: 1rem;
 }
