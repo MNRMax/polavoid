@@ -30,7 +30,6 @@ async function handleLike(e) {
     const { error } = await supabase
       .from('likes')
       .delete()
-      // .match({ user_id: "b827f7a4-e387-45c8-aa24-cc433e1be7b8", post_id: "346d7d6e-c185-4f62-9fa4-19bf6f4def47" })
       .match({ user_id: sessionStore.session.value.user.id, post_id: props.post.id })
   }
   else {
