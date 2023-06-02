@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import WelcomeItem from "../components/WelcomeItem.vue";
 import PostItem from "../components/postItem.vue";
+import StringItem from "../components/stringItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
 import { RouterLink } from "vue-router";
@@ -15,7 +16,7 @@ async function getPost() {
 }
 getPost().then((data) => {
   post.value = data;
-  console.log(data);
+  // console.log(data);
 });
 </script>
 
@@ -34,10 +35,11 @@ getPost().then((data) => {
     <!-- <WelcomeItem /> -->
     <div class="intro">
       <h1>Polavoid</h1>
-      <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
+      <img src="String-lights.png" alt="string lights" id="stringy" />
     </div>
-    <div class="fyp">
-      <PostItem v-if="post" :post="post" />
+    <div class="fyp">\
+      <StringItem/>
+      <!-- <PostItem v-if="post" :post="post" /> -->
     </div>
   </main>
 </template>
@@ -63,10 +65,10 @@ h1 {
 }
 #stringy {
   z-index: -1;
-  width: 130%;
+  width: 100%;
   position: absolute;
-  left: -12.5%;
-  top: -190vh;
+  left: 0px;
+  top: 0px;
 }
 .loginRegister {
   z-index: 4;
@@ -82,5 +84,6 @@ h1 {
   border: 3px solid var(--text);
   margin: 200px;
   padding: 5px;
+  
 }
 </style>
