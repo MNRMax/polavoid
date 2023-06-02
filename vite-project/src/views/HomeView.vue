@@ -45,7 +45,7 @@ getPost().then((data) => {
   </main>
 </template>
 
-<style>
+<style scoped>
 .fyp {
   display: flex;
   width: 100%;

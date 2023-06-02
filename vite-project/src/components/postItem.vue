@@ -26,21 +26,16 @@ async function getProfile() {
 async function handleLike(e) {
   e.stopPropagation();
   if (liked.value) {
-    const { error } = await supabase
-      .from("likes")
-      .delete()
-      .match({
-        user_id: sessionStore.session.value.user.id,
-        post_id: props.post.id,
-      });
+    const { error } = await supabase.from("likes").delete().match({
+      user_id: sessionStore.session.value.user.id,
+      post_id: props.post.id,
+    });
   } else {
-    const { error } = await supabase
-      .from("likes")
-      .insert({
-        user_id: sessionStore.session.value.user.id,
-        created_at: new Date(),
-        post_id: props.post.id,
-      });
+    const { error } = await supabase.from("likes").insert({
+      user_id: sessionStore.session.value.user.id,
+      created_at: new Date(),
+      post_id: props.post.id,
+    });
   }
   liked.value = !liked.value;
 }
@@ -120,8 +115,6 @@ checkLike();
 #post {
   width: 13vw;
   position: absolute;
-  top: 32%;
-  left: 40.5%;
 }
 
 #front,
