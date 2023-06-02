@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import WelcomeItem from "../components/WelcomeItem.vue";
 import PostItem from "../components/postItem.vue";
-import StringItem from "../components/stringItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
 import { RouterLink } from "vue-router";
@@ -16,7 +15,7 @@ async function getPost() {
 }
 getPost().then((data) => {
   post.value = data;
-  // console.log(data);
+  console.log(data);
 });
 </script>
 
@@ -37,9 +36,8 @@ getPost().then((data) => {
       <h1>Polavoid</h1>
       <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
     </div>
-    <div class="fyp">\
-      <StringItem/>
-      <!-- <PostItem v-if="post" :post="post" /> -->
+    <div class="fyp">
+      <PostItem v-if="post" :post="post" />
     </div>
   </main>
 </template>
