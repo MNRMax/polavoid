@@ -19,9 +19,25 @@ async function getProfile() {
     .eq("id", props.post.author);
   profile.value = data[0];
 }
-// getProfile().then(data => {
-//     profile.value = data;
-// })
+async function handleLike(e) {
+  e.stopPropagation();
+  if (liked.value) {
+    const { error } = await supabase
+      .from("likes")
+      .delete()
+      .match({
+        user_id: sessionStore.session.value.user.id,
+        post_id: props.post.id,
+      });
+  } else {
+    const { error } = await supabase.from("likes").insert({
+      user_id: sessionStore.session.value.user.id,
+      created_at: new Date(),
+      post_id: props.post.id,
+    });
+  }
+  liked.value = !liked.value;
+}
 onMounted(() => {
   getProfile();
 });

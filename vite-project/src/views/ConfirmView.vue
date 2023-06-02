@@ -17,7 +17,7 @@ async function getProfile() {
     const { data, error } = await supabase
         .from('profiles')
         .select()
-        .eq('id', "b827f7a4-e387-45c8-aa24-cc433e1be7b8")
+        .eq('id', sessionStore.session.value.user.id)
     console.log(data)
     username.value = data[0].username
     fullname.value = data[0].full_name
