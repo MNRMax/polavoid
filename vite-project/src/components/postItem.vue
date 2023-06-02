@@ -3,6 +3,10 @@ import ProfilePicture from "./ProfilePicture.vue";
 import { supabase } from "../supabase";
 import { ref, onMounted } from "vue";
 import "../assets/main.css";
+import { useSessionStore } from '../stores/session'
+
+const sessionStore = useSessionStore()
+const userID = ref(sessionStore.session.value.user.id)
 
 const props = defineProps({
   post: Object,
@@ -10,6 +14,7 @@ const props = defineProps({
 
 const profile = ref(undefined);
 const flipped = ref(false);
+const liked = ref(false);
 
 async function getProfile() {
   // console.log(props.post.author);
@@ -19,12 +24,33 @@ async function getProfile() {
     .eq("id", props.post.author);
   profile.value = data[0];
 }
-// getProfile().then(data => {
-//     profile.value = data;
-// })
+async function handleLike(e) {
+  e.stopPropagation();
+  if (liked.value) {
+    const { error } = await supabase
+      .from('likes')
+      .delete()
+      // .match({ user_id: "b827f7a4-e387-45c8-aa24-cc433e1be7b8", post_id: "346d7d6e-c185-4f62-9fa4-19bf6f4def47" })
+      .match({ user_id: sessionStore.session.value.user.id, post_id: props.post.id })
+  }
+  else {
+    const { error } = await supabase
+      .from('likes')
+      .insert({ user_id: sessionStore.session.value.user.id, created_at: new Date(), post_id: props.post.id })
+  }
+  liked.value = !liked.value
+}
 onMounted(() => {
   getProfile();
 });
+async function checkLike() {
+  const { data, error } = await supabase
+  .from('likes')
+  .select()
+  // .match({ user_id: sessionStore.session.value.user.id, post_id: props.post.id })
+  data.length === 0 ? liked.value = false : liked.value = true
+}
+checkLike()
 </script>
 
 <template>
@@ -40,6 +66,7 @@ onMounted(() => {
               <ProfilePicture id="pfp" :src="profile.avatar_url" />
               <h3 id="signature">{{ profile.username }}</h3>
             </div>
+            <span id="like" :class="liked ? 'liked' : ''" @click="(e) => handleLike(e)">favorite</span>
           </div>
         </div>
         <div id="back">
@@ -47,12 +74,10 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <span id="like" class="liked">favorite</span>
   </div>
 </template>
 
 <style scoped>
-
 #like {
   position: absolute;
   top: 18vw;
@@ -73,14 +98,20 @@ onMounted(() => {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoodata: antialiased;
   cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .liked {
   font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }
 
 
@@ -152,4 +183,5 @@ onMounted(() => {
 #caption {
   color: black;
   font-family: "Caveat", cursive;
-}</style>
+}
+</style>
