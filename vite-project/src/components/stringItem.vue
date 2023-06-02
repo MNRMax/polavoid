@@ -15,6 +15,10 @@ getPost().then((data) => {
   post.value = data;
   // console.log(data)
 });
+//https://stackoverflow.com/questions/39020670/rotate-objects-around-circle-using-css
+//https://stackoverflow.com/questions/10152390/dynamically-arrange-some-elements-around-a-circle 
+
+
 </script>
 
 <template>
@@ -27,21 +31,20 @@ getPost().then((data) => {
 
 <style scoped>
 #all  {
-  /* position: relative; */
+  position: relative;
 }
 #post1 {
   position: absolute;
-  left: 20vw;
-  transform-origin: center;
-  transform: rotateZ(180deg);
+  left: 10%;
 }
 #post2 {
   position: absolute;
-  left: 42.5vw;
+  left: 40%;
   /* transform: translatex(-7.5vw) */
 }
 #post3 {
   position: absolute;
-  right: 33vw;
+  right: 30%;
 }
 </style>
+
