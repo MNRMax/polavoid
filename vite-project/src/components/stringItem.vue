@@ -9,11 +9,11 @@ const post = ref(undefined);
 async function getPost() {
   const { data, error } = await supabase.from("posts").select();
   // console.log(data)
-  return data[0];
+  return data;
 }
 getPost().then((data) => {
   post.value = data;
-  // console.log(data)
+  console.log(data)
 });
 //https://stackoverflow.com/questions/39020670/rotate-objects-around-circle-using-css
 //https://stackoverflow.com/questions/10152390/dynamically-arrange-some-elements-around-a-circle 
@@ -23,9 +23,9 @@ getPost().then((data) => {
 
 <template>
   <div id="all">
-    <PostItem v-if="post" id="post1" :post="post"/>
-    <PostItem v-if="post" id="post2" :post="post"/>
-    <PostItem v-if="post" id="post3" :post="post"/>
+    <PostItem v-if="post" id="post1" :post="post[0]"/>
+    <PostItem v-if="post" id="post2" :post="post[1]"/>
+    <PostItem v-if="post" id="post3" :post="post[2]"/>
   </div>
 </template>
 
