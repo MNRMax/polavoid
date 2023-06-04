@@ -13,9 +13,7 @@ async function getPost() {
 }
 getPost().then((data) => {
   post.value = data;
-  console.log(data)
-});
-
+  
 var radius = 100;
 var fields = $('.post'),
   container = $('#all'),
@@ -35,6 +33,10 @@ fields.each(function() {
   });
   angle += step;
 });
+
+  console.log(data)
+});
+
 //https://stackoverflow.com/questions/39020670/rotate-objects-around-circle-using-css
 //https://stackoverflow.com/questions/10152390/dynamically-arrange-some-elements-around-a-circle 
 
