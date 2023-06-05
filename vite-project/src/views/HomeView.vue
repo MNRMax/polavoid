@@ -22,14 +22,16 @@ getPost().then((data) => {
 
 <template>
   <main class="introPage">
-    <RouterLink
+    <a
       v-if="sessionStore.session.value"
-      :to="`/profile/${sessionStore.session.value.user.id}`"
-      >Account</RouterLink
+      :href="`/profile/${sessionStore.session.value.user.id}`"
+      >Account</a
     >
+    <a v-if="sessionStore.session.value" href="/people">People</a>
+    <a v-if="sessionStore.session.value" href="/post">Create Post</a>
     <div class="loginRegister" v-else>
-      <RouterLink id="loginLink" to="/login">Log In</RouterLink>
-      <RouterLink id="registerLink" to="/register">Register</RouterLink>
+      <a id="loginLink" href="/login">Log In</a>
+      <a id="registerLink" href="/register">Register</a>
     </div>
 
     <!-- <WelcomeItem /> -->
@@ -38,7 +40,6 @@ getPost().then((data) => {
       <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
     </div>
     <div class="fyp">
-      \
       <StringItem />
       <!-- <PostItem v-if="post" :post="post" /> -->
     </div>
@@ -51,6 +52,7 @@ getPost().then((data) => {
   width: 100%;
   justify-content: space-around;
 }
+
 h1 {
   font-size: 60px;
   text-align: center;
@@ -61,9 +63,11 @@ h1 {
   border: solid var(--background) 3px;
   margin: auto;
 }
+
 .intro {
   height: 400px;
 }
+
 #stringy {
   z-index: -1;
   width: 130%;
@@ -71,6 +75,7 @@ h1 {
   left: -12.5%;
   top: -155%;
 }
+
 .loginRegister {
   z-index: 4;
   text-align: center;

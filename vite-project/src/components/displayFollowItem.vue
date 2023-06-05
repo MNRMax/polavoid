@@ -28,14 +28,23 @@ getProfile().then(data => {
         <div id="heading">
             <h1>{{ props.header }}</h1>
             <p id="exit" @click="$emit('close')">close</p>
+            <hr>
         </div>
-        <hr>
-        <followingItem v-for="item in profiles" :profile="item" />
+        <div id="items">
+            <followingItem v-for="item in profiles" :profile="item" />
+        </div>
     </div>
 </template>
 
 <style scoped>
+#items {
+    height: 100%;
+}
+#heading {
+    position: sticky;
+}
 #box {
+    overflow-y: scroll;
     position: fixed;
     background-color: rgb(36, 36, 36);
     top: 50%;

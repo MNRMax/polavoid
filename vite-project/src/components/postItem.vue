@@ -14,6 +14,7 @@ const props = defineProps({
 
 const profile = ref(undefined);
 const flipped = ref(false);
+const liked = ref(false);
 
 async function getProfile() {
   // console.log(props.post.author);
@@ -26,15 +27,15 @@ async function getProfile() {
 async function handleLike(e) {
   e.stopPropagation();
   if (liked.value) {
-    const { error } = await supabase.from("likes").delete().match({
-      user_id: sessionStore.session.value.user.id,
-      post_id: props.post.id,
+    const { data, error } = await supabase.rpc("unlike", {
+      postid: props.post.id,
+      userid: sessionStore.session.value.user.id,
     });
   } else {
-    const { error } = await supabase.from("likes").insert({
-      user_id: sessionStore.session.value.user.id,
-      created_at: new Date(),
-      post_id: props.post.id,
+    const { data, error } = await supabase.rpc("like", {
+      postid: props.post.id,
+      userid: sessionStore.session.value.user.id,
+      date: new Date(),
     });
   }
   liked.value = !liked.value;
@@ -43,8 +44,13 @@ onMounted(() => {
   getProfile();
 });
 async function checkLike() {
-  const { data, error } = await supabase.from("likes").select();
-  // .match({ user_id: sessionStore.session.value.user.id, post_id: props.post.id })
+  const { data, error } = await supabase
+    .from("likes")
+    .select()
+    .match({
+      user_id: sessionStore.session.value.user.id,
+      post_id: props.post.id,
+    });
   data.length === 0 ? (liked.value = false) : (liked.value = true);
 }
 checkLike();
@@ -150,7 +156,8 @@ checkLike();
 }
 
 #postImage {
-  width: 100%;
+  width: 11vw;
+  height: 14.6vw;
 }
 
 #pfp {

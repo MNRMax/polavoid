@@ -9,19 +9,19 @@ const post = ref(undefined);
 async function getPost() {
   const { data, error } = await supabase.from("posts").select();
   // console.log(data)
-  return data[0];
+  return data;
 }
 getPost().then((data) => {
   post.value = data;
-  // console.log(data)
+  console.log(data)
 });
 </script>
 
 <template>
   <div id="all">
-    <PostItem v-if="post" id="post1" :post="post"/>
-    <PostItem v-if="post" id="post2" :post="post"/>
-    <PostItem v-if="post" id="post3" :post="post"/>
+    <PostItem v-if="post" id="post1" :post="post[0]"/>
+    <PostItem v-if="post" id="post2" :post="post[1]"/>
+    <PostItem v-if="post" id="post3" :post="post[2]"/>
   </div>
 </template>
 
@@ -32,8 +32,8 @@ getPost().then((data) => {
 #post1 {
   position: absolute;
   left: 20vw;
-  transform-origin: center;
-  transform: rotateZ(180deg);
+  /* transform-origin: center;
+  transform: rotateZ(180deg); */
 }
 #post2 {
   position: absolute;
