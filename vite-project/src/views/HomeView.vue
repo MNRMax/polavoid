@@ -9,7 +9,6 @@ import { RouterLink } from "vue-router";
 
 const sessionStore = useSessionStore();
 const post = ref(undefined);
-const viewingHistory = undefined;
 
 async function getPost() {
     const { data, error } = await supabase.from("posts").select();
