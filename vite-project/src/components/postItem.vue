@@ -161,9 +161,9 @@ checkLike();
 
 #post {
   width: 13vw;
-  position: absolute;
+  /* position: absolute;
   top: 32%;
-  left: 40.5%;
+  left: 40.5%; */
 }
 
 #front,
