@@ -54,11 +54,11 @@ getPost().then((data) => {
 h1 {
   font-size: 60px;
   text-align: center;
-  color: var(--text);
+  color: var(--background);
   background-color: var(--box1);
   border-radius: 10px;
   width: 400px;
-  border: solid var(--text) 5px;
+  border: solid var(--background) 3px;
   margin: auto;
 }
 .intro {
@@ -69,7 +69,7 @@ h1 {
   width: 130%;
   position: absolute;
   left: -12.5%;
-  top: -190vh;
+  top: -155%;
 }
 .loginRegister {
   z-index: 4;

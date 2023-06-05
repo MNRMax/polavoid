@@ -51,6 +51,7 @@ async function handlePost() {
     </div>
     <div id="rightSide">
       <input
+        id="imgInsert"
         type="file"
         accept="image/*"
         ref="image"
@@ -86,16 +87,21 @@ async function handlePost() {
 </template>
 
 <style scoped>
+#imgInsert {
+  height: 50px;
+  font-size: 30px;
+}
 #postPreview {
   left: 0px;
   width: 890px;
 }
 textarea {
+  margin: 10px;
   resize: none;
-  background-color: rgb(47, 47, 47);
-  border: 2px white solid;
+  background-color: var(--background);
+  border: 2px var(--accent) solid;
   border-radius: 10px;
-  color: aliceblue;
+  color: var(--text);
   padding: 1rem;
 }
 #postText {
@@ -104,13 +110,17 @@ textarea {
   width: 90%;
 }
 #postButton {
-  font-size: 2rem;
-  height: 2.5rem;
+  font-size: 3rem;
+  height: 4rem;
   width: fit-content;
   position: absolute;
   bottom: 2rem;
+  border: 3px solid var(--accent);
   left: 50%;
   transform: translateX(-50%);
+  background-color: var(--button);
+  border-radius: 20px;
+  margin: 50px;
 }
 #postButton:hover {
   cursor: pointer;
