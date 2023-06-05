@@ -22,18 +22,6 @@ getPost().then((data) => {
 
 <template>
   <main class="introPage">
-    <a
-      v-if="sessionStore.session.value"
-      :href="`/profile/${sessionStore.session.value.user.id}`"
-      >Account</a
-    >
-    <a v-if="sessionStore.session.value" href="/people">People</a>
-    <a v-if="sessionStore.session.value" href="/post">Create Post</a>
-    <div class="loginRegister" v-else>
-      <a id="loginLink" href="/login">Log In</a>
-      <a id="registerLink" href="/register">Register</a>
-    </div>
-
     <!-- <WelcomeItem /> -->
     <div class="intro">
       <h1>Polavoid</h1>
@@ -56,11 +44,11 @@ getPost().then((data) => {
 h1 {
   font-size: 60px;
   text-align: center;
-  color: var(--background);
+  color: var(--text);
   background-color: var(--box1);
   border-radius: 10px;
   width: 400px;
-  border: solid var(--background) 3px;
+  border: solid var(--text) 3px;
   margin: auto;
 }
 
@@ -73,7 +61,7 @@ h1 {
   width: 130%;
   position: absolute;
   left: -12.5%;
-  top: -155%;
+  top: -180vh;
 }
 
 .loginRegister {

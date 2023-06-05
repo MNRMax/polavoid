@@ -78,8 +78,8 @@ input[type="password"] {
 }
 input[type="submit"] {
   background-color: var(--button);
-  color: white;
-  border: none;
+  color: var(--text);
+  border: 2px solid var(--text);
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
@@ -88,7 +88,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--button);
 }
-input:-webkit-autofill{
+input:-webkit-autofill {
   background-color: rgb(255, 227, 253) !important;
   background-image: none !important;
 }
