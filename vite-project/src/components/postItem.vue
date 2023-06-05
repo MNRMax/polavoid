@@ -94,17 +94,17 @@ async function checkLike() {
     });
     data.length === 0 ? (liked.value = false) : (liked.value = true);
 }
-async function addToHistory() {
-    const { error } = await supabase
-        .from("view_history")
-        .upsert({
-            post_id: props.post.id,
-            user_id: sessionStore.session.value.user.id,
-            created_at: new Date(),
-        });
-}
+// async function addToHistory() {
+//     const { error } = await supabase
+//         .from("view_history")
+//         .upsert({
+//             post_id: props.post.id,
+//             user_id: sessionStore.session.value.user.id,
+//             created_at: new Date(),
+//         });
+// }
 checkLike();
-addToHistory()
+// addToHistory()
 </script>
 
 <template>
