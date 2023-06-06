@@ -193,6 +193,8 @@ checkLike();
 }
 
 #back {
+  font-family: "Caveat", cursive;
+  font-size: 10px;
   color: black;
   transform: rotateY(180deg);
 }
@@ -231,7 +233,8 @@ checkLike();
 }
 
 #signature {
-  color: black;
+  color: rgb(28, 12, 59);
+
   font-family: "Caveat", cursive;
 }
 
