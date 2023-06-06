@@ -2,7 +2,7 @@
 import PostItem from "./postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
-import { ref } from "vue"
+import { createBlock, ref } from "vue";
 
 const post = ref(undefined);
 const positions = ref([1, 2, 3, 4, 5, 6])
@@ -14,7 +14,7 @@ async function getPost() {
 }
 getPost().then((data) => {
   post.value = data;
-  console.log(data)
+  console.log(data);
 });
 function calcID(num) {
   return "post" + positions.value[num - 1]
@@ -87,4 +87,5 @@ function rotate() {
   transition: 1s;
   transform-origin: center;
   transform: translateX(-50%);
-}</style>
+}
+</style>

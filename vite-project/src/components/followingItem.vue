@@ -25,6 +25,7 @@ const props = defineProps({
 }
 #text {
     width: fit-content;
+
 }
 #all {
     width: 90%;
@@ -36,13 +37,13 @@ h2 {
     font-size: 1.5rem;
     margin: 0;
     margin-top: 0.5rem;
-    margin-left: 20%;
+    margin-left: 4rem;
 }
 h3 {    
     width: fit-content;
     font-size: 1rem;
     margin: 0;
-    margin-left: 20%;
+    margin-left: 4rem;
 }
 button {
     margin-top: 1.25rem;
