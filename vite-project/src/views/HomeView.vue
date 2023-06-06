@@ -42,11 +42,10 @@ getPost().then((data) => {
     <!-- <WelcomeItem /> -->
     <div class="intro">
       <h1>Polavoid</h1>
-      <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
     </div>
     <div class="fyp">
-      <!-- <StringItem /> -->
-      <PostItem v-if="post" :post="post" />
+      <StringItem />
+      <!-- <PostItem v-if="post" :post="post" /> -->
     </div>
   </main>
 </template>
@@ -65,7 +64,7 @@ h1 {
   background-color: var(--box1);
   border-radius: 10px;
   width: 400px;
-  border: solid var(--text) 5px;
+  border: solid var(--text) 4px;
   margin: auto;
 }
 
