@@ -57,18 +57,18 @@ async function getOldSession() {
 <style scoped>
 #navigationBar {
   width: fit-content;
-  height: 100px;
+  height: 50px;
   text-align: center;
   color: var(--text);
   background-color: var(--background);
   border-radius: 10px;
   border: solid var(--box1) 3px;
-  margin: auto;
+  margin: 10px auto 30px;
 }
-#account {
-}
-#people {
-}
+#account,
+#people,
 #create {
+  margin: 90px;
+  font-size: 30px;
 }
 </style>
