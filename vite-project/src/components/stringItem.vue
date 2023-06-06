@@ -2,7 +2,7 @@
 import PostItem from "./postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
-import { ref } from "vue";
+import { createBlock, ref } from "vue";
 
 const post = ref(undefined);
 
@@ -16,9 +16,21 @@ getPost().then((data) => {
   console.log(data);
 });
 
+</script>
 
+<script>
+let container = document.getElementById("all");
+
+function circle() {
+container.addEventListener("scroll", () =>
+  {
+    document.getElementById("post1").style.top = "100 + vw";
+  })
+};
+circle();
 
 </script>
+
 
 <template>
   <div id="all">
