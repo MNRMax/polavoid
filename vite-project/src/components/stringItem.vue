@@ -30,20 +30,23 @@ getPost().then((data) => {
 
 <style scoped>
 #all  {
-  /* position: relative; */
+  /*position: relative;*/
 }
 #post1 {
   position: absolute;
+  top: 20vw;
   left: 20vw;
   /* transform-origin: center;
   transform: rotateZ(180deg); */
 }
 #post2 {
   position: absolute;
+  top: 25vw;
   left: 42.5vw;
   /* transform: translatex(-7.5vw) */
 }
 #post3 {
+  top: 20vw;
   position: absolute;
   right: 33vw;
 }
