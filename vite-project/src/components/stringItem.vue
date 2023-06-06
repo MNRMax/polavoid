@@ -27,20 +27,6 @@ function rotate() {
 }
 </script>
 
-<script>
-let container = document.getElementById("all");
-
-function circle() {
-container.addEventListener("scroll", () =>
-  {
-    document.getElementById("post1").style.top = "100 + vw";
-  })
-};
-circle();
-
-</script>
-
-
 <template>
   <button @click="positions.unshift(positions.pop());; rotate()"> random button</button>
   <div id="all">
