@@ -53,7 +53,6 @@ checkFollowing()
     font-size: 1.3rem;
     color: var(--text);
     border-style: none;
-    margin-left: 5rem;
     border-radius: 0.3rem;
     padding: 0.2rem;
     padding-left: 1rem;

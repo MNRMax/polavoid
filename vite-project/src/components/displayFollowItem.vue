@@ -52,7 +52,6 @@ getProfile().then(data => {
     transform: translate(-50%, -50%);
     width: 30vw;
     height: 70vh;
-    text-align: center;
     border-radius: 2rem;
     border: solid 5px var(--text);
 }
