@@ -42,11 +42,10 @@ getPost().then((data) => {
     <!-- <WelcomeItem /> -->
     <div class="intro">
       <h1>Polavoid</h1>
-      <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
     </div>
     <div class="fyp">
-      <!-- <StringItem /> -->
-      <PostItem v-if="post" :post="post" />
+      <StringItem />
+      <!-- <PostItem v-if="post" :post="post" /> -->
     </div>
   </main>
 </template>
