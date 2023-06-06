@@ -36,6 +36,22 @@ async function handlePost() {
     };
     const { error } = await supabase.from("posts").insert(post);
     if (error) throw error;
+
+    // Adding to used tag table -- post_id needs to be fixed for this to work
+    /* let tagData = [];
+    post.tags.forEach((tagTxt) => {
+      tagData.push({
+        post_id: post.id,
+        user_id: sessionStore.session.value.user.id,
+        created_at: new Date(),
+        tag_txt: tagTxt,
+      });
+    });
+    const { dataOne, errorOne } = await supabase
+      .from("tags_used")
+      .upsert(tagData)
+      .select(); */
+
     window.location = `/profile/${sessionStore.session.value.user.id}`;
   } catch (error) {
     console.log(error);
@@ -47,11 +63,10 @@ async function handlePost() {
   <form @submit.prevent="handlePost">
     <div id="leftSide">
       <h2>Preview</h2>
-      <PostItem :post="post()" id="postPreview" />
+      <PostItem :post="post()" />
     </div>
     <div id="rightSide">
       <input
-        id="imgInsert"
         type="file"
         accept="image/*"
         ref="image"

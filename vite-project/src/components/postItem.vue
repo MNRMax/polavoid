@@ -16,6 +16,30 @@ const profile = ref(undefined);
 const flipped = ref(false);
 const liked = ref(false);
 
+/* async function addTag(tagTxt) {
+  const { data, error } = await supabase.rpc("add_used_tag", {
+    postid: props.post.id,
+    userid: sessionStore.session.value.user.id,
+    date: new Date(),
+    tag: tagTxt,
+  });
+}
+
+async function removeTag(removalType, tag) {
+  if (removalType == "group") {
+    const { data, error } = await supabase.rpc("remove_used_tag_group", {
+      postid: props.post.id,
+      userid: sessionStore.session.value.user.id,
+    });
+  } else if (removalType == "individual") {
+    const { data, error } = await supabase.rpc("remove_used_tag_individual", {
+      postid: props.post.id,
+      userid: sessionStore.session.value.user.id,
+      tag: tag,
+    });
+  }
+} */
+
 async function getProfile() {
   // console.log(props.post.author);
   const { data, error } = await supabase
@@ -31,12 +55,32 @@ async function handleLike(e) {
       postid: props.post.id,
       userid: sessionStore.session.value.user.id,
     });
+    const { dataOne, errorOne } = await supabase
+      .from("tags_used")
+      .delete()
+      .match({
+        post_id: props.post.id,
+        user_id: sessionStore.session.value.user.id,
+      });
   } else {
     const { data, error } = await supabase.rpc("like", {
       postid: props.post.id,
       userid: sessionStore.session.value.user.id,
       date: new Date(),
     });
+    let tagData = [];
+    props.post.tags.forEach((tagTxt) => {
+      tagData.push({
+        post_id: props.post.id,
+        user_id: sessionStore.session.value.user.id,
+        created_at: new Date(),
+        tag_txt: tagTxt,
+      });
+    });
+    const { dataOne, errorOne } = await supabase
+      .from("tags_used")
+      .upsert(tagData)
+      .select();
   }
   liked.value = !liked.value;
 }
@@ -44,16 +88,23 @@ onMounted(() => {
   getProfile();
 });
 async function checkLike() {
-  const { data, error } = await supabase
-    .from("likes")
-    .select()
-    .match({
-      user_id: sessionStore.session.value.user.id,
-      post_id: props.post.id,
-    });
+  const { data, error } = await supabase.from("likes").select().match({
+    user_id: sessionStore.session.value.user.id,
+    post_id: props.post.id,
+  });
   data.length === 0 ? (liked.value = false) : (liked.value = true);
 }
+// async function addToHistory() {
+//     const { error } = await supabase
+//         .from("view_history")
+//         .upsert({
+//             post_id: props.post.id,
+//             user_id: sessionStore.session.value.user.id,
+//             created_at: new Date(),
+//         });
+// }
 checkLike();
+// addToHistory()
 </script>
 
 <template>
@@ -120,7 +171,9 @@ checkLike();
 
 #post {
   width: 13vw;
-  position: absolute;
+  /* position: absolute;
+  top: 32%;
+  left: 40.5%; */
 }
 
 #front,
