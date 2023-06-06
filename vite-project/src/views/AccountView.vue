@@ -6,6 +6,7 @@ import ProfilePicture from "../components/ProfilePicture.vue";
 import displayFollowItem from "../components/displayFollowItem.vue";
 import { useRoute } from 'vue-router'
 import FollowButton from "../components/followButton.vue";
+import PostItem from "../components/postItem.vue";
 const route = useRoute()
 
 const sessionStore = useSessionStore()
@@ -13,6 +14,7 @@ const sessionStore = useSessionStore()
 const profile = ref()
 const following = ref([])
 const followers = ref([])
+const posts = ref([])
 const showFollowing = ref(false)
 const showFollowers = ref(false)
 
@@ -36,13 +38,20 @@ async function getFollowers() {
         .select()
         .eq("following", route.params.id)
     followers.value = data;
-    console.log(followers)
+}
+async function getPosts() {
+    const { data, error } = await supabase
+        .from('posts')
+        .select()
+        .eq("author", route.params.id)
+    posts.value = data;
 }
 
 function getAllData() {
     getProfile()
     getFollowing()
     getFollowers()
+    getPosts()
 }
 
 getAllData()
@@ -70,13 +79,16 @@ const signOut = async () => {
             <a :href="profile.website">{{ profile.website }}</a>
         </div>
         <div id="followDiv">
-            <button id="follow">{{ "0" }} Posts</button>
+            <button id="follow">{{ posts.length }} Posts</button>
             <button id="follow" @click="showFollowers = !showFollowers">{{ followers.length }} Followers</button>
             <button id="follow" @click="showFollowing = !showFollowing">{{ following.length }} Following</button>
             <button class="signout" @click="signOut" v-if="sessionStore.session.value.user.id == route.params.id">Sign
                 Out</button>
             <FollowButton @update="getAllData" id="followButton" :followedUser="route.params.id" v-else />
         </div>
+    </div>
+    <div id="posts">
+        <PostItem class="post" v-for="post in posts" :post="post"/>
     </div>
     <displayFollowItem @close="showFollowing = !showFollowing" v-if="showFollowing" header="Following"
         :items="following.map(x => x.following)" />
@@ -85,6 +97,15 @@ const signOut = async () => {
 </template>
 
 <style scoped>
+.post {
+    flex-basis: 33.33333333%
+}
+#posts {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 .page {
   color: var(--text);
 }
