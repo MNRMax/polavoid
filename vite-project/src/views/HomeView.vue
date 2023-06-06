@@ -30,14 +30,14 @@ getPost().then((data) => {
 </script>
 
 <template>
-  <main class="introPage">
-    <a v-if="sessionStore.session.value" :href="`/profile/${sessionStore.session.value.user.id}`">Account</a>
-    <a v-if="sessionStore.session.value" href="/people">People</a>
-    <a v-if="sessionStore.session.value" href="/post">Create Post</a>
-    <div class="loginRegister" v-else>
-      <a id="loginLink" href="/login">Log In</a>
-      <a id="registerLink" href="/register">Register</a>
-    </div>
+    <main class="introPage" >
+        <a v-if="sessionStore.session.value" :href="`/profile/${sessionStore.session.value.user.id}`">Account</a>
+        <a v-if="sessionStore.session.value" href="/people">People</a>
+        <a v-if="sessionStore.session.value" href="/post">Create Post</a>
+        <div class="loginRegister" v-else>
+            <a id="loginLink" href="/login">Log In</a>
+            <a id="registerLink" href="/register">Register</a>
+        </div>
 
     <!-- <WelcomeItem /> -->
     <div class="intro">
@@ -74,11 +74,11 @@ h1 {
 }
 
 #stringy {
-  z-index: -1;
-  width: 130%;
-  position: absolute;
-  left: -12.5%;
-  top: -190vh;
+    z-index: -1;
+    width: 130%;
+    position: absolute;
+    left: -12.5%;
+    top: -190vh;
 }
 
 .loginRegister {
