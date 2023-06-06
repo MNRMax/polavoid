@@ -14,7 +14,7 @@ const following = ref(false)
 const emit = defineEmits(['update'])
 
 function getBGColor() {
-    const color = `background-color: ${following.value ? "gray" : "#00bd7e"};`
+    const color = `background-color: ${following.value ? "var(--box1)" : "var(--button)"};`
     return color
 }
 async function handleFollow() {

@@ -31,7 +31,7 @@ getProfile().then(data => {
             <hr>
         </div>
         <div id="items">
-            <followingItem v-for="item in profiles" :profile="item" />
+            <followingItem  v-for="item in profiles" :profile="item" />
         </div>
     </div>
 </template>
@@ -46,7 +46,7 @@ getProfile().then(data => {
 #box {
     overflow-y: scroll;
     position: fixed;
-    background-color: rgb(36, 36, 36);
+    background-color: var(--shadow);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -54,13 +54,19 @@ getProfile().then(data => {
     height: 70vh;
     text-align: center;
     border-radius: 2rem;
+    border: solid 5px var(--text);
 }
 
 h1 {
+    margin-top: 10px;
+    padding: 5px;
     color: aliceblue;
     font-size: 2.5rem;
 }
 
+hr {
+    color: aliceblue;
+}
 #exit {
     font-size: 2.2rem;
     color: aliceblue;

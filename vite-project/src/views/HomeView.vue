@@ -56,7 +56,7 @@ h1 {
   background-color: var(--box1);
   border-radius: 10px;
   width: 400px;
-  border: solid var(--text) 3px;
+  border: solid var(--text) 4px;
   margin: auto;
 }
 
