@@ -21,7 +21,7 @@ getPost().then((data) => {
 </script>
 
 <template>
-    <main class="introPage">
+    <main class="introPage" >
         <a v-if="sessionStore.session.value" :href="`/profile/${sessionStore.session.value.user.id}`">Account</a>
         <a v-if="sessionStore.session.value" href="/people">People</a>
         <a v-if="sessionStore.session.value" href="/post">Create Post</a>
@@ -32,8 +32,7 @@ getPost().then((data) => {
 
         <!-- <WelcomeItem /> -->
         <div class="intro">
-            <h1>Polavoid</h1>
-            <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" />
+            <h1 @click="rotate()">Polavoid</h1>
         </div>
         <div class="fyp">
             <StringItem />
@@ -62,14 +61,6 @@ h1 {
 
 .intro {
     height: 400px;
-}
-
-#stringy {
-    z-index: -1;
-    width: 130%;
-    position: absolute;
-    left: -12.5%;
-    top: -190vh;
 }
 
 .loginRegister {
