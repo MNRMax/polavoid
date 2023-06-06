@@ -49,7 +49,7 @@ button {
     height: fit-content;
     box-shadow: none;
     font-size: 1.3rem;
-    color: aliceblue;
+    color: var(--button);
     border-style: none;
     margin-left: 25%;
     border-radius: 0.3rem;
