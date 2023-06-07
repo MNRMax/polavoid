@@ -7,7 +7,7 @@ const props = defineProps({
 });
 
 function goToProfile(id) {
-  window.location = `/profile/${id}`
+  router.push(`/profile/${id}`)
 }
 </script>
 

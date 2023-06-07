@@ -6,7 +6,7 @@ import { supabase } from "../supabase";
 const users = ref(null);
 
 function redirect(id) {
-  window.location = "/profile/" + id;
+  router.push("/profile/" + id)
 }
 
 async function getAllUsers() {

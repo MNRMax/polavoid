@@ -61,7 +61,7 @@ const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     sessionStore.session = undefined;
     if (error) throw error;
-    window.location = "/";
+    router.push('/')
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);

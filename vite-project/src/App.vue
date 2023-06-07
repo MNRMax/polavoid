@@ -8,7 +8,6 @@ const sessionStore = useSessionStore();
 
 onMounted(async () => {
   await getOldSession();
-  console.log(window.location);
   if (window.location.pathname != "/confirmation") {
     redirect();
   }
@@ -20,7 +19,7 @@ async function redirect() {
     .select("updated_at")
     .eq("id", sessionStore.session.value.user.id);
   if (data[0].updated_at == null) {
-    if (window) window.location = "/confirmation";
+    if (window) router.push({ path: '/confirmation'});
   }
 }
 async function getOldSession() {

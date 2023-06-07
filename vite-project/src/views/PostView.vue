@@ -52,7 +52,7 @@ async function handlePost() {
       .upsert(tagData)
       .select(); */
 
-    window.location = `/profile/${sessionStore.session.value.user.id}`;
+      router.push(`/profile/${sessionStore.session.value.user.id}`);
   } catch (error) {
     console.log(error);
   }

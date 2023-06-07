@@ -20,7 +20,7 @@ const handleLogin = async () => {
     });
     sessionStore.session = data.session;
     if (error) throw error;
-    window.location = "/";
+    router.push('/');
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);
