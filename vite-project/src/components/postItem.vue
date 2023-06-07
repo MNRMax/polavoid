@@ -111,10 +111,10 @@ checkLike();
   <div>
     <div v-if="profile" id="post" @click="flipped = !flipped">
       <div id="inner" :class="flipped ? 'flipped' : ''">
-        <img class="clip" src="/clip.png">
+        <img class="clip" src="/public/clip.png">
         <div id="front">
           <img v-if="props.post.image" id="postImage" :src="props.post.image" />
-          <img v-else id="postImage" src="/noupload.png" />
+          <img v-else id="postImage" src="/public/noupload.png" />
           <h3 id="caption">{{ props.post.caption }}</h3>
           <div id="bottom">
             <div id="user">
