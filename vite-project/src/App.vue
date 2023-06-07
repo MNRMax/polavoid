@@ -35,15 +35,15 @@ async function getOldSession() {
 
 <template>
   <div id="navigationBar">
-    <a href="/"><img id="homeLogo" src="/favicon.ico" alt="" /></a>
-    <a id="account" v-if="sessionStore.session.value" :href="`/profile/${sessionStore.session.value.user.id}`">Account</a>
-    <a id="people" v-if="sessionStore.session.value" href="/people">People</a>
-    <a id="create" v-if="sessionStore.session.value" href="/post">Create Post</a>
+    <RouterLink to="/"><img id="homeLogo" src="/favicon.ico" alt="" /></RouterLink>
+    <RouterLink id="account" v-if="sessionStore.session.value" :to="`/profile/${sessionStore.session.value.user.id}`">Account</RouterLink>
+    <RouterLink id="people" v-if="sessionStore.session.value" to="/people">People</RouterLink>
+    <RouterLink id="create" v-if="sessionStore.session.value" to="/post">Create Post</RouterLink>
     <div class="loginRegister" v-else>
-      <a id="loginLink" href="/login">Log In</a>
-      <a id="registerLink" href="/register">Register</a>
+      <RouterLink id="loginLink" to="/login">Log In</RouterLink>
+      <RouterLink id="registerLink" to="/register">Register</RouterLink>
     </div>
-    <a id="aboutLink" href="/about">About</a>
+    <RouterLink id="aboutLink" to="/about">About</RouterLink>
   </div>
   <RouterView />
 </template>
