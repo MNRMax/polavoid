@@ -65,6 +65,7 @@ async function getOldSession() {
   margin: 20px;
 }
 #navigationBar {
+  z-index: 100;
   max-width: 1400px;
   max-width: none;
   width: max-content;

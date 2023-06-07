@@ -7,7 +7,7 @@ import displayFollowItem from "../components/displayFollowItem.vue";
 import { useRoute } from "vue-router";
 import FollowButton from "../components/followButton.vue";
 import PostItem from "../components/postItem.vue";
-import router from '../router'
+import router from "../router";
 const route = useRoute();
 
 const sessionStore = useSessionStore();
@@ -62,7 +62,7 @@ const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     sessionStore.session = undefined;
     if (error) throw error;
-    router.go('/')
+    router.go("/");
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);
@@ -121,6 +121,7 @@ const signOut = async () => {
 
 <style scoped>
 .post {
+  margin: 50px;
 }
 #posts {
   margin-top: 5rem;
