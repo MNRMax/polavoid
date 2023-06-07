@@ -111,7 +111,7 @@ checkLike();
   <div>
     <div v-if="profile" id="post" @click="flipped = !flipped">
       <div id="inner" :class="flipped ? 'flipped' : ''">
-        <img class="clip" src="/clip.png">
+        <img class="clip" src="/clip.png" />
         <div id="front">
           <img v-if="props.post.image" id="postImage" :src="props.post.image" />
           <img v-else id="postImage" src="/noupload.png" />
@@ -121,11 +121,17 @@ checkLike();
               <ProfilePicture id="pfp" :src="profile.avatar_url" />
               <h3 id="signature">{{ profile.username }}</h3>
             </div>
-            <span id="like" :class="liked ? 'liked' : ''" @click="(e) => handleLike(e)">favorite</span>
+            <span
+              id="like"
+              :class="liked ? 'liked' : ''"
+              @click="(e) => handleLike(e)"
+              >favorite</span
+            >
           </div>
         </div>
         <div id="back">
           <h2>{{ props.post.description }}</h2>
+          <h2>{{ props.date }}</h2>
         </div>
       </div>
     </div>
