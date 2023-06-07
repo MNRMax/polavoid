@@ -136,7 +136,9 @@ checkLike();
 .clip {
   width: 13vw;
   position: absolute;
-  top: 0;
+  top: -7vw;
+  z-index: 5;
+  left: 0.5vw;
 }
 #like {
   position: absolute;
