@@ -43,6 +43,9 @@ getPost().then((data) => {
 </template>
 
 <style scoped>
+a {
+  overflow-y: hidden;
+}
 .fyp {
   display: flex;
   width: 100%;

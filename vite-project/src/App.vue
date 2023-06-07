@@ -27,7 +27,6 @@ async function getOldSession() {
   await supabase.auth.getSession().then(({ data }) => {
     sessionStore.session.value = data.session;
   });
-
   await supabase.auth.onAuthStateChange((_, _session) => {
     sessionStore.session.value = _session;
   });
