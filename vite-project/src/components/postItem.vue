@@ -114,7 +114,7 @@ checkLike();
         <img class="clip" src="/clip.png">
         <div id="front">
           <img v-if="props.post.image" id="postImage" :src="props.post.image" />
-          <img v-else id="postImage" src="noupload.png" />
+          <img v-else id="postImage" src="/noupload.png" />
           <h3 id="caption">{{ props.post.caption }}</h3>
           <div id="bottom">
             <div id="user">

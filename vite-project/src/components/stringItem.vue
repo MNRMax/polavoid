@@ -38,7 +38,7 @@ function rotate(dir) {
     <PostItem v-if="post" :id="calcID(5)" class="post" :post="post[4]" />
     <PostItem v-if="post" :id="calcID(6)" class="post" :post="post[5]" />
   </div>
-  <img src="blue-light-bulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
+  <img src="/blue-light-bulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
 </template>
 
 <style scoped>
