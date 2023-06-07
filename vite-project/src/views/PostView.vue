@@ -65,14 +65,20 @@ async function handlePost() {
       <h2>Preview</h2>
       <PostItem :post="post()" />
     </div>
+
     <div id="rightSide">
-      <input
-        type="file"
-        accept="image/*"
-        ref="image"
-        @change="handleImage"
-        required
-      />
+      <div id="imgArea">
+        <label for="imgInput">
+          Click to pick image!
+          <input
+            id="imgInput"
+            type="file"
+            accept="image/*"
+            ref="image"
+            @change="handleImage"
+            required
+        /></label>
+      </div>
       <textarea
         id="titleText"
         placeholder="Caption"
@@ -102,22 +108,29 @@ async function handlePost() {
 </template>
 
 <style scoped>
-#imgInsert {
-  height: 50px;
-  font-size: 30px;
+#imgInput {
+  display: none;
+}
+label {
+  cursor: pointer;
 }
 #postPreview {
   left: 0px;
   width: 890px;
 }
-textarea {
+#imgArea {
+  font-size: 30px;
+}
+textarea,
+#imgArea {
   margin: 10px;
   resize: none;
   background-color: var(--background);
-  border: 2px var(--accent) solid;
+  border: 2px var(--text) solid;
   border-radius: 10px;
   color: var(--text);
   padding: 1rem;
+  max-width: 60%;
 }
 #postText {
   font-size: 2rem;
@@ -156,6 +169,7 @@ textarea {
 #leftSide {
   top: 60px;
   width: 100%;
-  margin: 10px;
+  margin-top: 40px;
+  margin-left: 15%;
 }
 </style>

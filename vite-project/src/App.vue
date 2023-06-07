@@ -35,6 +35,7 @@ async function getOldSession() {
 
 <template>
   <div id="navigationBar">
+    <a href="/"><img id="homeLogo" src="/favicon.ico" alt="" /></a>
     <a
       id="account"
       v-if="sessionStore.session.value"
@@ -49,25 +50,36 @@ async function getOldSession() {
       <a id="loginLink" href="/login">Log In</a>
       <a id="registerLink" href="/register">Register</a>
     </div>
+    <a id="aboutLink" href="/about">About</a>
   </div>
   <RouterView />
 </template>
 
 <style scoped>
+#homeLogo {
+  width: 70px;
+  margin: 20px;
+}
 #navigationBar {
-  width: fit-content;
-  height: 50px;
+  max-width: 1400px;
+  max-width: none;
+  width: max-content;
+  height: 100px;
   text-align: center;
   color: var(--text);
   background-color: var(--background);
   border-radius: 10px;
   border: solid var(--box1) 3px;
   margin: 10px auto 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
 #account,
 #people,
-#create {
-  margin: 90px;
-  font-size: 30px;
+#create,
+#aboutLink {
+  margin: 30px 90px;
+  font-size: 27px;
 }
 </style>

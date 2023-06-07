@@ -140,10 +140,10 @@ checkLike();
 #like {
   position: absolute;
   top: 18vw;
-  left: 9vw;
+  left: 9.5vw;
   width: 5vw;
   font-size: 2.2rem;
-  color: red;
+  color: var(--purple);
   font-family: "Material Symbols Outlined";
   font-weight: normal;
   font-style: normal;
@@ -163,10 +163,15 @@ checkLike();
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  transition: 0.7s;
 }
-
+#like:hover {
+  color: var(--button);
+  font-size: 2.5rem;
+}
 .liked {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  color: var(--button);
 }
 
 #post {
@@ -174,8 +179,11 @@ checkLike();
   /* position: absolute;
   top: 32%;
   left: 40.5%; */
+  transition: 1s;
 }
-
+#post:hover {
+  width: 14vw;
+}
 #front,
 #back {
   /* height: 29rem; */
@@ -190,6 +198,7 @@ checkLike();
   /* Safari */
   backface-visibility: hidden;
   padding: 20px;
+  transition: 0.5s;
 }
 
 #back {

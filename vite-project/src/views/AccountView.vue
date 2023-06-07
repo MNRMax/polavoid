@@ -120,7 +120,6 @@ const signOut = async () => {
 
 <style scoped>
 .post {
-  flex-basis: 33.33333333%;
 }
 #posts {
   margin-top: 5rem;
