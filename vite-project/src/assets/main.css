@@ -35,7 +35,7 @@ body {
   /*  background: linear-gradient(0deg, var(--accent) 0%, var(--background) 100%);*/
   /*DARK*/
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: scroll;
   background: linear-gradient(0deg, #180557 0%, #7b0f62 70%, black 100%);
 }
 
