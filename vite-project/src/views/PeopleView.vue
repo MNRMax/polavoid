@@ -7,7 +7,7 @@ import router from '../router'
 const users = ref(null);
 
 function redirect(id) {
-  router.go("/profile/" + id)
+  window.location.pathname = ("/profile/" + id)
 }
 
 async function getAllUsers() {
