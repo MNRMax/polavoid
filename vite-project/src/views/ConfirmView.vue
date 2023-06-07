@@ -4,6 +4,7 @@ import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
 import convertToBase64 from "../base64";
+import router from '../router'
 
 const sessionStore = useSessionStore()
 
@@ -37,7 +38,7 @@ async function changeUser() {
         }
         const { error } = await supabase.from('profiles').upsert(updates).select()
         if (error) throw error
-        window.location = `/profile/${sessionStore.session.value.user.id}`
+        router.go(`/profile/${sessionStore.session.value.user.id}`)
     } catch (error) {
 
     }

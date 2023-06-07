@@ -4,6 +4,7 @@ import convertToBase64 from "../base64";
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
+import router from "../router";
 
 const sessionStore = useSessionStore();
 
@@ -52,7 +53,7 @@ async function handlePost() {
       .upsert(tagData)
       .select(); */
 
-    window.location = `/profile/${sessionStore.session.value.user.id}`;
+    router.go(`/profile/${sessionStore.session.value.user.id}`);
   } catch (error) {
     console.log(error);
   }
@@ -62,17 +63,23 @@ async function handlePost() {
 <template>
   <form @submit.prevent="handlePost">
     <div id="leftSide">
-      <h2>Preview</h2>
-      <PostItem :post="post()" />
+      <h2 id="previewText">Preview</h2>
+      <PostItem id="preview" :post="post()" />
     </div>
+
     <div id="rightSide">
-      <input
-        type="file"
-        accept="image/*"
-        ref="image"
-        @change="handleImage"
-        required
-      />
+      <div id="imgArea">
+        <label for="imgInput">
+          Click to pick image!
+          <input
+            id="imgInput"
+            type="file"
+            accept="image/*"
+            ref="image"
+            @change="handleImage"
+            required
+        /></label>
+      </div>
       <textarea
         id="titleText"
         placeholder="Caption"
@@ -102,35 +109,55 @@ async function handlePost() {
 </template>
 
 <style scoped>
-textarea {
-  resize: none;
-  background-color: rgb(47, 47, 47);
-  border: 2px white solid;
-  border-radius: 10px;
-  color: aliceblue;
-  padding: 1rem;
+#imgInput {
+  display: none;
 }
-
+label {
+  cursor: pointer;
+}
+#preview {
+  margin-top: 100px;
+  left: 0px;
+  width: 890px;
+}
+#previewText {
+  margin: 75px;
+}
+#imgArea {
+  font-size: 30px;
+}
+textarea,
+#imgArea {
+  margin: 10px;
+  resize: none;
+  background-color: var(--background);
+  border: 2px var(--text) solid;
+  border-radius: 10px;
+  color: var(--text);
+  padding: 1rem;
+  max-width: 60%;
+}
 #postText {
   font-size: 2rem;
   height: 10rem;
   width: 90%;
 }
-
 #postButton {
-  font-size: 2rem;
-  height: 2.5rem;
+  font-size: 3rem;
+  height: 4rem;
   width: fit-content;
   position: absolute;
   bottom: 2rem;
+  border: 3px solid var(--accent);
   left: 50%;
   transform: translateX(-50%);
+  background-color: var(--button);
+  border-radius: 20px;
+  margin: 50px;
 }
-
 #postButton:hover {
   cursor: pointer;
 }
-
 #titleText {
   font-size: 1.7rem;
   width: 90%;
@@ -139,17 +166,15 @@ textarea {
   font-size: 1.7rem;
   width: 90%;
 }
-
 #rightSide {
   position: absolute;
   width: 50%;
   left: 50%;
 }
-
 #leftSide {
-  position: absolute;
-  width: 50%;
-  left: 0;
-  text-align: center;
+  top: 60px;
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 15%;
 }
 </style>

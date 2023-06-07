@@ -2,31 +2,29 @@
 import { ref } from "vue";
 import { supabase } from "../supabase";
 import { useSessionStore } from "../stores/session";
-import router from "@/router";
+import router from '../router'
 
 const sessionStore = useSessionStore();
 
-let loading = ref(false);
 let email = ref("");
 let password = ref("");
 let self = this;
 
 const handleLogin = async () => {
   try {
-    loading.value = true;
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email.value,
       password: password.value,
     });
     sessionStore.session = data.session;
     if (error) throw error;
-    window.location = "/";
+    setTimeout(() => {
+        window.location.pathname = "/"
+    }, 100)
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);
     }
-  } finally {
-    loading.value = false;
   }
 };
 </script>
@@ -45,7 +43,7 @@ const handleLogin = async () => {
           autocomplete="current-password"
           v-model="password"
         />
-        <input type="submit" :value="loading.value ? 'Loading...' : 'Log In'" />
+        <input type="submit" :value="'Log In'" />
       </form>
     </div>
   </section>
@@ -78,8 +76,8 @@ input[type="password"] {
 }
 input[type="submit"] {
   background-color: var(--button);
-  color: white;
-  border: none;
+  color: var(--text);
+  border: 2px solid var(--text);
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
@@ -88,7 +86,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--button);
 }
-input:-webkit-autofill{
+input:-webkit-autofill {
   background-color: rgb(255, 227, 253) !important;
   background-image: none !important;
 }
