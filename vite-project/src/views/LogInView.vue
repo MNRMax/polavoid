@@ -18,7 +18,9 @@ const handleLogin = async () => {
     });
     sessionStore.session = data.session;
     if (error) throw error;
-    router.go('/');
+    setTimeout(() => {
+        window.location.pathname = "/"
+    }, 100)
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);

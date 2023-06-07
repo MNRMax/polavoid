@@ -20,7 +20,9 @@ const handleSignUp = async () => {
     sessionStore.user = data.user;
     if (error) throw error;
     alert("Please check your Email to verify your account.");
-    router.go('/');
+    setTimeout(() => {
+        window.location.pathname = "/login"
+    }, 100)
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);

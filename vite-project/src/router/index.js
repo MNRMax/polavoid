@@ -70,13 +70,12 @@ const router = createRouter({
 router.beforeEach(async (to, from) => {
   await getOldSession();
   const sessionStore = useSessionStore()
-  console.log(sessionStore.session.value)
   if (to.meta.requiresAuth && !sessionStore.session.value) {
     return {
       path: '/login',
+      query: { redirect: to.fullPath },
     }
   }
-  return
 })
 
 export default router
