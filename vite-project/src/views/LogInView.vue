@@ -2,18 +2,16 @@
 import { ref } from "vue";
 import { supabase } from "../supabase";
 import { useSessionStore } from "../stores/session";
-import router from "@/router";
+import router from '../router'
 
 const sessionStore = useSessionStore();
 
-let loading = ref(false);
 let email = ref("");
 let password = ref("");
 let self = this;
 
 const handleLogin = async () => {
   try {
-    loading.value = true;
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email.value,
       password: password.value,
@@ -25,8 +23,6 @@ const handleLogin = async () => {
     if (error instanceof Error) {
       alert(error.message);
     }
-  } finally {
-    loading.value = false;
   }
 };
 </script>
@@ -45,7 +41,7 @@ const handleLogin = async () => {
           autocomplete="current-password"
           v-model="password"
         />
-        <input type="submit" :value="loading.value ? 'Loading...' : 'Log In'" />
+        <input type="submit" :value="'Log In'" />
       </form>
     </div>
   </section>

@@ -74,9 +74,9 @@ router.beforeEach(async (to, from) => {
   if (to.meta.requiresAuth && !sessionStore.session.value) {
     return {
       path: '/login',
-      query: { redirect: to.fullPath },
     }
   }
+  return
 })
 
 export default router

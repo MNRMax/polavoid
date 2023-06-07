@@ -2,18 +2,16 @@
 import { ref } from "vue";
 import { supabase } from "../supabase";
 import { useSessionStore } from "../stores/session";
-import router from "@/router";
+import router from '../router'
 
 const sessionStore = useSessionStore();
 
-let loading = ref(false);
 let email = ref("");
 let usename = ref("");
 let password = ref("");
 
 const handleSignUp = async () => {
   try {
-    loading.value = true;
     const { data, error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
@@ -22,12 +20,11 @@ const handleSignUp = async () => {
     sessionStore.user = data.user;
     if (error) throw error;
     alert("Please check your Email to verify your account.");
+    router.go('/');
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);
     }
-  } finally {
-    loading.value = false;
   }
 };
 </script>
@@ -52,7 +49,7 @@ const handleSignUp = async () => {
         v-model="password"
         required
       />
-      <input type="submit" :value="loading.value ? 'Loading...' : 'Register'" />
+      <input type="submit" :value="'Register'" />
     </form>
   </div>
 </template>
