@@ -50,6 +50,7 @@ async function getProfile() {
 }
 async function handleLike(e) {
   e.stopPropagation();
+  liked.value = !liked.value;
   if (liked.value) {
     const { data, error } = await supabase.rpc("unlike", {
       postid: props.post.id,
