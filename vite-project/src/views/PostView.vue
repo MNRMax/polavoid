@@ -4,7 +4,7 @@ import convertToBase64 from "../base64";
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
-import router from '../router'
+import router from "../router";
 
 const sessionStore = useSessionStore();
 
@@ -53,7 +53,7 @@ async function handlePost() {
       .upsert(tagData)
       .select(); */
 
-      router.go(`/profile/${sessionStore.session.value.user.id}`);
+    router.go(`/profile/${sessionStore.session.value.user.id}`);
   } catch (error) {
     console.log(error);
   }
@@ -63,8 +63,8 @@ async function handlePost() {
 <template>
   <form @submit.prevent="handlePost">
     <div id="leftSide">
-      <h2>Preview</h2>
-      <PostItem :post="post()" />
+      <h2 id="previewText">Preview</h2>
+      <PostItem id="preview" :post="post()" />
     </div>
 
     <div id="rightSide">
@@ -115,9 +115,13 @@ async function handlePost() {
 label {
   cursor: pointer;
 }
-#postPreview {
+#preview {
+  margin-top: 100px;
   left: 0px;
   width: 890px;
+}
+#previewText {
+  margin: 75px;
 }
 #imgArea {
   font-size: 30px;

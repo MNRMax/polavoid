@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 import { supabase } from "./supabase";
 import { useSessionStore } from "./stores/session";
 import { ref, onMounted, onBeforeMount } from "vue";
-import router from './router'
+import router from "./router";
 
 const sessionStore = useSessionStore();
 
@@ -20,7 +20,7 @@ async function redirect() {
     .select("updated_at")
     .eq("id", sessionStore.session.value.user.id);
   if (data[0].updated_at == null) {
-    if (window) router.go({ path: '/confirmation'});
+    if (window) router.go({ path: "/confirmation" });
   }
 }
 async function getOldSession() {
@@ -35,10 +35,21 @@ async function getOldSession() {
 
 <template>
   <div id="navigationBar">
-    <RouterLink to="/"><img id="homeLogo" src="/favicon.ico" alt="" /></RouterLink>
-    <RouterLink id="account" v-if="sessionStore.session.value" :to="`/profile/${sessionStore.session.value.user.id}`">Account</RouterLink>
-    <RouterLink id="people" v-if="sessionStore.session.value" to="/people">People</RouterLink>
-    <RouterLink id="create" v-if="sessionStore.session.value" to="/post">Create Post</RouterLink>
+    <RouterLink to="/"
+      ><img id="homeLogo" src="/favicon.ico" alt=""
+    /></RouterLink>
+    <RouterLink
+      id="account"
+      v-if="sessionStore.session.value"
+      :to="`/profile/${sessionStore.session.value.user.id}`"
+      >Account</RouterLink
+    >
+    <RouterLink id="people" v-if="sessionStore.session.value" to="/people"
+      >People</RouterLink
+    >
+    <RouterLink id="create" v-if="sessionStore.session.value" to="/post"
+      >Create Post</RouterLink
+    >
     <div class="loginRegister" v-else>
       <RouterLink id="loginLink" to="/login">Log In</RouterLink>
       <RouterLink id="registerLink" to="/register">Register</RouterLink>
@@ -53,7 +64,6 @@ async function getOldSession() {
   width: 70px;
   margin: 20px;
 }
-
 #navigationBar {
   max-width: 1400px;
   max-width: none;
@@ -69,11 +79,17 @@ async function getOldSession() {
   flex-wrap: wrap;
   align-content: center;
 }
-
+.loginRegister {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
 #account,
 #people,
 #create,
-#aboutLink {
+#aboutLink,
+#loginLink,
+#registerLink {
   margin: 30px 90px;
   font-size: 27px;
 }
