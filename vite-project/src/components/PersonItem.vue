@@ -23,6 +23,11 @@ const props = defineProps({
 </template>
 
 <style scoped>
+#splitter{
+  width:90%;
+  color: aliceblue;
+}
+
 #card {
     position: relative;
     background-color: var(--background);
