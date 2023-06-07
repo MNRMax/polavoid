@@ -20,7 +20,7 @@ getAllUsers();
 
 <template>
   <div id="pplArr">
-    <PersonItem
+    <PersonItem id="item"
       v-if="users"
       v-for="user in users"
       :user="user"
@@ -36,5 +36,8 @@ getAllUsers();
 }
 #pplArr::-webkit-scrollbar {
   display: none;
+}
+#item {
+ cursor: pointer;
 }
 </style>

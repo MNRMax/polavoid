@@ -5,10 +5,14 @@ import ProfilePicture from "./ProfilePicture.vue";
 const props = defineProps({
   profile: Object,
 });
+
+function goToProfile(id) {
+  window.location = `/profile/${id}`
+}
 </script>
 
 <template>
-  <div id="all">
+  <div id="all" @click="goToProfile(profile.id)">
     <ProfilePicture id="pfp" :src="props.profile.avatar_url" />
     <div id="text">
       <h2>{{ props.profile.username }}</h2>
@@ -20,9 +24,13 @@ const props = defineProps({
       :followedUser="profile.id"
     />
   </div>
+  <hr id="splitter"/>
 </template>
 
 <style scoped>
+#splitter {
+  width:80%;
+}
 #pfp {
   height: 4rem;
   width: 4rem;
@@ -35,6 +43,7 @@ const props = defineProps({
   display: flex;
   padding: 2rem;
   color: aliceblue;
+  cursor: pointer;
 }
 
 h2 {

@@ -50,6 +50,7 @@ async function getProfile() {
 }
 async function handleLike(e) {
   e.stopPropagation();
+  liked.value = !liked.value;
   if (liked.value) {
     const { data, error } = await supabase.rpc("unlike", {
       postid: props.post.id,
@@ -82,7 +83,6 @@ async function handleLike(e) {
       .upsert(tagData)
       .select();
   }
-  liked.value = !liked.value;
 }
 onMounted(() => {
   getProfile();
@@ -111,6 +111,7 @@ checkLike();
   <div>
     <div v-if="profile" id="post" @click="flipped = !flipped">
       <div id="inner" :class="flipped ? 'flipped' : ''">
+        <img class="clip" src="/clip.png">
         <div id="front">
           <img v-if="props.post.image" id="postImage" :src="props.post.image" />
           <img v-else id="postImage" src="noupload.png" />
@@ -120,12 +121,7 @@ checkLike();
               <ProfilePicture id="pfp" :src="profile.avatar_url" />
               <h3 id="signature">{{ profile.username }}</h3>
             </div>
-            <span
-              id="like"
-              :class="liked ? 'liked' : ''"
-              @click="(e) => handleLike(e)"
-              >favorite</span
-            >
+            <span id="like" :class="liked ? 'liked' : ''" @click="(e) => handleLike(e)">favorite</span>
           </div>
         </div>
         <div id="back">
@@ -137,6 +133,11 @@ checkLike();
 </template>
 
 <style scoped>
+.clip {
+  width: 13vw;
+  position: absolute;
+  top: 0;
+}
 #like {
   position: absolute;
   top: 18vw;
@@ -165,10 +166,12 @@ checkLike();
   user-select: none;
   transition: 0.7s;
 }
+
 #like:hover {
   color: var(--button);
   font-size: 2.5rem;
 }
+
 .liked {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
   color: var(--button);
@@ -181,9 +184,10 @@ checkLike();
   left: 40.5%; */
   transition: 1s;
 }
-#post:hover {
+
+/* #post:hover {
   width: 14vw;
-}
+} */
 #front,
 #back {
   /* height: 29rem; */

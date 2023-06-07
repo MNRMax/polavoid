@@ -22,20 +22,21 @@ function calcID(num) {
 function getRotation() {
   return `transform: translateX(-50%) rotate(${rotation.value}deg);`
 }
-function rotate() {
-  rotation.value += 25
+function rotate(dir) {
+  rotation.value += 25 * dir
 }
 </script>
 
 <template>
-  <button @click="positions.unshift(positions.pop());; rotate()"> random button</button>
+  <span id="arrow" class="material-symbols-outlined left" @click="positions.push(positions.shift());; rotate(-1)">arrow_back_ios_new</span>
+  <span id="arrow" class="material-symbols-outlined right" @click="positions.unshift(positions.pop());; rotate(1)">arrow_forward_ios</span>
   <div id="all">
     <PostItem v-if="post" :id="calcID(1)" class="post" :post="post[0]" />
     <PostItem v-if="post" :id="calcID(2)" class="post" :post="post[1]" />
     <PostItem v-if="post" :id="calcID(3)" class="post" :post="post[2]" />
-    <PostItem v-if="post" :id="calcID(4)" class="post" :post="post[0]" />
-    <PostItem v-if="post" :id="calcID(5)" class="post" :post="post[1]" />
-    <PostItem v-if="post" :id="calcID(6)" class="post" :post="post[2]" />
+    <PostItem v-if="post" :id="calcID(4)" class="post" :post="post[3]" />
+    <PostItem v-if="post" :id="calcID(5)" class="post" :post="post[4]" />
+    <PostItem v-if="post" :id="calcID(6)" class="post" :post="post[5]" />
   </div>
   <img src="Blue-light-bulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
 </template>
@@ -49,7 +50,7 @@ function rotate() {
   transition: 1s;
   position: absolute;
   transform-origin: top center;
-  left: 42.5vw;
+  left: 43.5vw;
   top: 16vw;
 }
 
@@ -87,5 +88,24 @@ function rotate() {
   transition: 1s;
   transform-origin: center;
   transform: translateX(-50%);
+}
+#arrow {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-variation-settings: "FILL" 1, "wght" 800, "GRAD" 0, "opsz" 48;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  z-index: 10;
+  top: 70vh;
+  transition: 1s;
+  position: absolute;
+  transform-origin: top center;
+}
+.left {
+  left: 37vw;
+}
+.right {
+  right: 37vw;
 }
 </style>

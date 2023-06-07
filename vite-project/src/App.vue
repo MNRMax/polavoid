@@ -36,16 +36,9 @@ async function getOldSession() {
 <template>
   <div id="navigationBar">
     <a href="/"><img id="homeLogo" src="/favicon.ico" alt="" /></a>
-    <a
-      id="account"
-      v-if="sessionStore.session.value"
-      :href="`/profile/${sessionStore.session.value.user.id}`"
-      >Account</a
-    >
+    <a id="account" v-if="sessionStore.session.value" :href="`/profile/${sessionStore.session.value.user.id}`">Account</a>
     <a id="people" v-if="sessionStore.session.value" href="/people">People</a>
-    <a id="create" v-if="sessionStore.session.value" href="/post"
-      >Create Post</a
-    >
+    <a id="create" v-if="sessionStore.session.value" href="/post">Create Post</a>
     <div class="loginRegister" v-else>
       <a id="loginLink" href="/login">Log In</a>
       <a id="registerLink" href="/register">Register</a>
@@ -60,6 +53,7 @@ async function getOldSession() {
   width: 70px;
   margin: 20px;
 }
+
 #navigationBar {
   max-width: 1400px;
   max-width: none;
@@ -75,6 +69,7 @@ async function getOldSession() {
   flex-wrap: wrap;
   align-content: center;
 }
+
 #account,
 #people,
 #create,

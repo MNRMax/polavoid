@@ -10,6 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
+<div>
     <div v-if="props.user" id="card">
         <ProfilePicture id="pfp" :src="props.user.avatar_url"/>
         <div>
@@ -18,6 +19,7 @@ const props = defineProps({
         </div>
         <FollowButton id="followButton" style="background-color: var(--button);" :followed-user="props.user.id"/>
     </div>
+</div>
 </template>
 
 <style scoped>
