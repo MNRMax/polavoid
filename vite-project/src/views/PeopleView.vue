@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import PersonItem from "../components/PersonItem.vue";
 import { supabase } from "../supabase";
+import router from '../router'
 
 const users = ref(null);
 

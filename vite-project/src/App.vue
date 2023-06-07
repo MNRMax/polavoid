@@ -3,10 +3,11 @@ import { RouterLink, RouterView } from "vue-router";
 import { supabase } from "./supabase";
 import { useSessionStore } from "./stores/session";
 import { ref, onMounted, onBeforeMount } from "vue";
+import router from './router'
 
 const sessionStore = useSessionStore();
 
-onMounted(async () => {
+onBeforeMount(async () => {
   await getOldSession();
   if (window.location.pathname != "/confirmation") {
     redirect();

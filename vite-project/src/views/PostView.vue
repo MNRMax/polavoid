@@ -4,6 +4,7 @@ import convertToBase64 from "../base64";
 import PostItem from "../components/postItem.vue";
 import { useSessionStore } from "../stores/session";
 import { supabase } from "../supabase";
+import router from '../router'
 
 const sessionStore = useSessionStore();
 
@@ -52,7 +53,7 @@ async function handlePost() {
       .upsert(tagData)
       .select(); */
 
-      router.push(`/profile/${sessionStore.session.value.user.id}`);
+      router.go(`/profile/${sessionStore.session.value.user.id}`);
   } catch (error) {
     console.log(error);
   }

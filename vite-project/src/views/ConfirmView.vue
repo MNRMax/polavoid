@@ -4,6 +4,7 @@ import { supabase } from '../supabase'
 import { useSessionStore } from '../stores/session'
 import ProfilePicture from "../components/ProfilePicture.vue";
 import convertToBase64 from "../base64";
+import router from '../router'
 
 const sessionStore = useSessionStore()
 

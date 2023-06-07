@@ -1,6 +1,7 @@
 <script setup>
 import FollowButton from "./followButton.vue";
 import ProfilePicture from "./ProfilePicture.vue";
+import router from '../router'
 
 const props = defineProps({
   profile: Object,
