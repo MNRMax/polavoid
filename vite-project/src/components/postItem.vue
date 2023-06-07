@@ -52,18 +52,6 @@ async function handleLike(e) {
   e.stopPropagation();
   liked.value = !liked.value;
   if (liked.value) {
-    const { data, error } = await supabase.rpc("unlike", {
-      postid: props.post.id,
-      userid: sessionStore.session.value.user.id,
-    });
-    const { dataOne, errorOne } = await supabase
-      .from("tags_used")
-      .delete()
-      .match({
-        post_id: props.post.id,
-        user_id: sessionStore.session.value.user.id,
-      });
-  } else {
     const { data, error } = await supabase.rpc("like", {
       postid: props.post.id,
       userid: sessionStore.session.value.user.id,
@@ -82,6 +70,18 @@ async function handleLike(e) {
       .from("tags_used")
       .upsert(tagData)
       .select();
+  } else {
+    const { data, error } = await supabase.rpc("unlike", {
+      postid: props.post.id,
+      userid: sessionStore.session.value.user.id,
+    });
+    const { dataOne, errorOne } = await supabase
+      .from("tags_used")
+      .delete()
+      .match({
+        post_id: props.post.id,
+        user_id: sessionStore.session.value.user.id,
+      });
   }
 }
 onMounted(() => {

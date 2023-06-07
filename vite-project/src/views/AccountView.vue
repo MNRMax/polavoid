@@ -88,7 +88,7 @@ const signOut = async () => {
         {{ following.length }} Following
       </button>
       <button
-        class="signout"
+        class="btn"
         @click="signOut"
         v-if="sessionStore.session.value.user.id == route.params.id"
       >
@@ -173,7 +173,7 @@ a {
   font-size: 1rem;
 }
 
-.signout {
+.btn {
   background-color: var(--button);
   height: fit-content;
   box-shadow: none;
