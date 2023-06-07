@@ -20,7 +20,7 @@ async function redirect() {
     .select("updated_at")
     .eq("id", sessionStore.session.value.user.id);
   if (data[0].updated_at == null) {
-    if (window) router.push({ path: '/confirmation'});
+    if (window) router.go({ path: '/confirmation'});
   }
 }
 async function getOldSession() {

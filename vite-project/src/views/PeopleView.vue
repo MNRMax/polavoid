@@ -7,7 +7,7 @@ import router from '../router'
 const users = ref(null);
 
 function redirect(id) {
-  router.push("/profile/" + id)
+  router.go("/profile/" + id)
 }
 
 async function getAllUsers() {

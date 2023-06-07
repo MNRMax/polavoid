@@ -8,7 +8,7 @@ const props = defineProps({
 });
 
 function goToProfile(id) {
-  router.push(`/profile/${id}`)
+  router.go(`/profile/${id}`)
 }
 </script>
 
