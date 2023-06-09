@@ -164,6 +164,7 @@ function handleAlgorithmChange() {
         <option value="get_popular_posts">Popular</option>
         <option value="get_for_you_posts">For You</option>
       <option value="get_trending_posts">Trending</option>
+      <option value="get_newest_posts">Newest</option>
     </select>
 </template>
 
