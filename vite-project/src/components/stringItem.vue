@@ -48,6 +48,7 @@ async function getNewPosts() {
     data.forEach(item => {
         leftArray.value.unshift(item)
     })
+    console.log(leftArray.value)
 });
 }
 

@@ -15,10 +15,9 @@ const props = defineProps({
 const profile = ref(undefined);
 const flipped = ref(false);
 const liked = ref(false);
-let oldPost = props.post
+let oldOwner = props.post.author
 
 async function getProfile() {
-  console.log(props.post.author);
   const { data, error } = await supabase
     .from("profiles")
     .select()
@@ -63,12 +62,12 @@ async function handleLike(e) {
 }
 onMounted(() => {
   getProfile();
-  setTimeout(() => {
-    if (props.post != oldPost) {
-        oldPost = props.post
+  setInterval(() => {
+    if (props.post.author != oldOwner) {
+        oldOwner = props.post.author
         getProfile()
     }
-  }, 100)
+  }, 1000)
 });
 async function checkLike() {
   const { data, error } = await supabase.from("likes").select().match({
@@ -78,11 +77,14 @@ async function checkLike() {
   data.length === 0 ? (liked.value = false) : (liked.value = true);
 }
 checkLike();
+function log() {
+  console.log(props.post.author);
+}
 </script>
 
 <template>
   <div>
-    <div v-if="profile" id="post" @click="flipped = !flipped">
+    <div v-if="profile" id="post" @click="flipped = !flipped;log() ">
       <div id="inner" :class="flipped ? 'flipped' : ''">
         <img class="clip" src="/clip.png" />
         <div id="front">

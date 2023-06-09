@@ -54,7 +54,7 @@ async function getOldSession() {
         </a>
     </div>
     <RouterView />
-    <p id="note">Note: There is a bug where sometimes posts have the wrong author. Max will fix it.</p>
+    <p id="note">Note: There is a bug where posts duplicate. Max will fix it.</p>
 </template>
 
 <style scoped>
