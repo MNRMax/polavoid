@@ -130,7 +130,7 @@ const signOut = async () => {
   height: 27vw;
   overflow-y: scroll;
   position: fixed;
-  background-color: var(--shadow);
+
   margin-top: 5rem;
   display: flex;
   justify-content: space-around;
@@ -138,7 +138,7 @@ const signOut = async () => {
   row-gap: 22vw;
 }
 ::-webkit-scrollbar {
-  width: 30px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
