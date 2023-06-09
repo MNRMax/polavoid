@@ -14,7 +14,7 @@ const leftArray = ref([])
 const rightArray = ref([])
 let cooldown = false
 let loading = false
-let fypType = "get_popular_posts"
+let fypType = "get_trending_posts"
 
 async function getInitialPosts(alg) {
   const { data, error } = await supabase.rpc(alg, {
@@ -24,7 +24,7 @@ async function getInitialPosts(alg) {
   });
   return data;
 }
-getInitialPosts("get_popular_posts").then(async (ids) => {
+getInitialPosts(fypType).then(async (ids) => {
     if (!ids || ids.length == 0 ) return
     const { data, error } = await supabase
         .from('posts')
@@ -162,9 +162,9 @@ function handleAlgorithmChange() {
     </div>
     <img src="\blueLightBulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
     <select name="fypOption" id="selectFyp" @change="handleAlgorithmChange()">
-        <option value="get_popular_posts">Popular</option>
+        <option value="get_trending_posts">Trending</option>
         <option value="get_for_you_posts">For You</option>
-      <option value="get_trending_posts">Trending</option>
+        <option value="get_popular_posts">Popular</option>
       <option value="get_newest_posts">Newest</option>
     </select>
 </template>
