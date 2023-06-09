@@ -45,6 +45,9 @@ async function getOldSession() {
     >
       <img class="logos" src="/acct-logo.png" alt="account logo image" />
     </RouterLink>
+    <RouterLink id="create" v-if="sessionStore.session.value" to="/post"
+      ><img class="logos" src="/CreateLogo.png" alt="Light bulb logo image" />
+    </RouterLink>
     <RouterLink id="people" v-if="sessionStore.session.value" to="/people"
       ><img
         class="logos"
@@ -52,9 +55,6 @@ async function getOldSession() {
         src="/PeopleLogo.png"
         alt="account logo image"
       />
-    </RouterLink>
-    <RouterLink id="create" v-if="sessionStore.session.value" to="/post"
-      ><img class="logos" src="/CreateLogo.png" alt="Light bulb logo image" />
     </RouterLink>
     <div class="loginRegister" v-else>
       <RouterLink id="loginLink" to="/login">Log In</RouterLink>
