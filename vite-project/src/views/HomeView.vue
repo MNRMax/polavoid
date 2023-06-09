@@ -10,23 +10,23 @@ import { RouterLink } from "vue-router";
 const sessionStore = useSessionStore();
 const post = ref(undefined);
 
-async function getPopular() {
-  const { data, error } = await supabase.rpc("getPopularPost", {
-    userid: sessionStore.session.value.user.id,
-  });
-  return data;
-}
-async function getPost() {
-  const { data, error } = await supabase
-    .from("posts")
-    .select()
-    .eq("id", await getPopular());
-  return data[0];
-}
-getPost().then((data) => {
-  post.value = data;
-  // console.log(data);
-});
+// async function getPopular() {
+//   const { data, error } = await supabase.rpc("getPopularPost", {
+//     userid: sessionStore.session.value.user.id,
+//   });
+//   return data;
+// }
+// async function getPost() {
+//   const { data, error } = await supabase
+//     .from("posts")
+//     .select()
+//     .eq("id", await getPopular());
+//   return data[0];
+// }
+// getPost().then((data) => {
+//   post.value = data;
+//   // console.log(data);
+// });
 </script>
 
 <template>
@@ -43,6 +43,12 @@ getPost().then((data) => {
 </template>
 
 <style scoped>
+option {
+  margin: auto;
+}
+option:hover {
+  cursor: pointer;
+}
 a {
   overflow-y: hidden;
 }

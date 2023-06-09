@@ -120,14 +120,41 @@ const signOut = async () => {
 </template>
 
 <style scoped>
+#followButton {
+  margin-left: 20px;
+}
 .post {
   margin: 50px;
+  position: relative;
 }
 #posts {
+  width: 100vw;
+  max-width: 1280px;
+  height: 27vw;
+  overflow-y: scroll;
+  position: fixed;
   margin-top: 5rem;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  row-gap: 22vw;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background);
+  border-radius: 10px;
+  transition: 1s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button);
 }
 .page {
   color: var(--text);
@@ -135,6 +162,7 @@ const signOut = async () => {
 
 #text {
   display: block;
+  margin: 0px;
 }
 
 #pfp {
@@ -146,6 +174,8 @@ const signOut = async () => {
 
 #banner {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 90%;
   background-color: var(--background);
   border: 3px solid var(--text);
@@ -179,7 +209,6 @@ a {
   box-shadow: none;
   font-size: 1.3rem;
   color: aliceblue;
-  border-style: none;
   margin-left: 5rem;
   border-radius: 0.3rem;
   padding: 0.2rem;
@@ -191,7 +220,7 @@ a {
 #followDiv {
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 9rem;
+  margin-left: 5rem;
 }
 
 #follow {
