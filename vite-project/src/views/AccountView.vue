@@ -122,8 +122,14 @@ const signOut = async () => {
 <style scoped>
 .post {
   margin: 50px;
+  position: relative;
 }
 #posts {
+  max-width: 1280px;
+  height: 50vh;
+  overflow-y: scroll;
+  position: fixed;
+  background-color: var(--shadow);
   margin-top: 5rem;
   display: flex;
   justify-content: space-around;
@@ -179,7 +185,6 @@ a {
   box-shadow: none;
   font-size: 1.3rem;
   color: aliceblue;
-  border-style: none;
   margin-left: 5rem;
   border-radius: 0.3rem;
   padding: 0.2rem;

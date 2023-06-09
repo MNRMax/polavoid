@@ -42,28 +42,36 @@ async function getOldSession() {
       id="account"
       v-if="sessionStore.session.value"
       :to="`/profile/${sessionStore.session.value.user.id}`"
-      >Account</RouterLink
-    >
+      ><img class="logos" src="/acct-logo.png" alt="account logo image" />
+    </RouterLink>
     <RouterLink id="people" v-if="sessionStore.session.value" to="/people"
-      >People</RouterLink
-    >
+      ><img
+        class="logos"
+        id="pplLogo"
+        src="/PeopleLogo.png"
+        alt="account logo image"
+      />
+    </RouterLink>
     <RouterLink id="create" v-if="sessionStore.session.value" to="/post"
-      >Create Post</RouterLink
-    >
+      ><img class="logos" src="/CreateLogo.png" alt="Light bulb logo image" />
+    </RouterLink>
     <div class="loginRegister" v-else>
       <RouterLink id="loginLink" to="/login">Log In</RouterLink>
       <RouterLink id="registerLink" to="/register">Register</RouterLink>
     </div>
-    <RouterLink id="aboutLink" to="/about">About</RouterLink>
+    <RouterLink id="aboutLink" to="/about"
+      ><img
+        class="logos"
+        id="aboutLogo"
+        src="/About-Logo.png"
+        alt="Light bulb logo image"
+      />
+    </RouterLink>
   </div>
   <RouterView />
 </template>
 
 <style scoped>
-#homeLogo {
-  width: 70px;
-  margin: 20px;
-}
 #navigationBar {
   z-index: 100;
   max-width: 1400px;
@@ -92,6 +100,19 @@ async function getOldSession() {
 #loginLink,
 #registerLink {
   margin: 30px 90px;
-  font-size: 27px;
+  font-size: 20px;
+}
+.logos {
+  width: 70px;
+  margin: 0px;
+}
+h3 {
+  margin: 0px;
+}
+#homeLogo {
+  margin-right: 40px;
+  margin-top: 40px;
+  margin-left: 80px;
+  width: 70px;
 }
 </style>

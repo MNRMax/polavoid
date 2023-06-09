@@ -61,6 +61,7 @@ async function handlePost() {
 </script>
 
 <template>
+  <h1>Create Post</h1>
   <form @submit.prevent="handlePost">
     <div id="leftSide">
       <h2 id="previewText">Preview</h2>
@@ -109,6 +110,14 @@ async function handlePost() {
 </template>
 
 <style scoped>
+h1 {
+  margin: 0px;
+  text-align: center;
+  font-size: 50px;
+  border: 1px var(--text) solid;
+  border-radius: 10px;
+  background-color: var(--background);
+}
 #imgInput {
   display: none;
 }
@@ -148,11 +157,12 @@ textarea,
   width: fit-content;
   position: absolute;
   bottom: 2rem;
-  border: 3px solid var(--accent);
+  border: 2px solid var(--text);
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--button);
   border-radius: 20px;
+  padding: 0% 50px;
   margin: 50px;
 }
 #postButton:hover {
@@ -168,6 +178,7 @@ textarea,
 }
 #rightSide {
   position: absolute;
+  top: 30vh;
   width: 50%;
   left: 50%;
 }
