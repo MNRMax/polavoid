@@ -8,7 +8,7 @@ const props = defineProps({
 });
 
 function goToProfile(id) {
-  router.go(`/profile/${id}`)
+  window.location.pathname = (`/profile/${id}`)
 }
 </script>
 
