@@ -15,33 +15,10 @@ const props = defineProps({
 const profile = ref(undefined);
 const flipped = ref(false);
 const liked = ref(false);
-
-/* async function addTag(tagTxt) {
-  const { data, error } = await supabase.rpc("add_used_tag", {
-    postid: props.post.id,
-    userid: sessionStore.session.value.user.id,
-    date: new Date(),
-    tag: tagTxt,
-  });
-}
-
-async function removeTag(removalType, tag) {
-  if (removalType == "group") {
-    const { data, error } = await supabase.rpc("remove_used_tag_group", {
-      postid: props.post.id,
-      userid: sessionStore.session.value.user.id,
-    });
-  } else if (removalType == "individual") {
-    const { data, error } = await supabase.rpc("remove_used_tag_individual", {
-      postid: props.post.id,
-      userid: sessionStore.session.value.user.id,
-      tag: tag,
-    });
-  }
-} */
+let oldPost = props.post
 
 async function getProfile() {
-  // console.log(props.post.author);
+  console.log(props.post.author);
   const { data, error } = await supabase
     .from("profiles")
     .select()
@@ -86,6 +63,12 @@ async function handleLike(e) {
 }
 onMounted(() => {
   getProfile();
+  setTimeout(() => {
+    if (props.post != oldPost) {
+        oldPost = props.post
+        getProfile()
+    }
+  }, 100)
 });
 async function checkLike() {
   const { data, error } = await supabase.from("likes").select().match({
@@ -95,7 +78,6 @@ async function checkLike() {
   data.length === 0 ? (liked.value = false) : (liked.value = true);
 }
 checkLike();
-// addToHistory()
 </script>
 
 <template>

@@ -40,7 +40,7 @@ getInitialPosts("get_popular_posts").then(async (ids) => {
 });
 
 async function getNewPosts() {
-    getInitialPosts().then(async (ids) => {
+    getInitialPosts(fypType).then(async (ids) => {
     const { data, error } = await supabase
         .from('posts')
         .select()
@@ -160,7 +160,7 @@ function handleAlgorithmChange() {
         <PostItem v-if="post[5]" :id="calcID(6)" class="post" :post="post[5]" />
     </div>
     <img src="\blueLightBulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
-    <select name="fypOption" id="selectFyp">
+    <select name="fypOption" id="selectFyp" @change="handleAlgorithmChange()">
         <option value="get_popular_posts">Popular</option>
         <option value="get_for_you_posts">For You</option>
       <option value="get_trending_posts">Trending</option>
