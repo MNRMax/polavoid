@@ -44,6 +44,7 @@ getProfile().then((data) => {
   position: sticky;
 }
 #box {
+  background-color: var(--background);
   overflow-y: scroll;
   position: fixed;
   top: 50%;

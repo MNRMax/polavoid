@@ -120,6 +120,9 @@ const signOut = async () => {
 </template>
 
 <style scoped>
+#followButton {
+  margin-left: 20px;
+}
 .post {
   margin: 50px;
   position: relative;
@@ -130,7 +133,6 @@ const signOut = async () => {
   height: 27vw;
   overflow-y: scroll;
   position: fixed;
-
   margin-top: 5rem;
   display: flex;
   justify-content: space-around;
@@ -160,6 +162,7 @@ const signOut = async () => {
 
 #text {
   display: block;
+  margin: 0px;
 }
 
 #pfp {
@@ -171,6 +174,8 @@ const signOut = async () => {
 
 #banner {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 90%;
   background-color: var(--background);
   border: 3px solid var(--text);
@@ -215,7 +220,7 @@ a {
 #followDiv {
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 9rem;
+  margin-left: 5rem;
 }
 
 #follow {

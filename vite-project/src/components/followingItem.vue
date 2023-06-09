@@ -1,14 +1,14 @@
 <script setup>
 import FollowButton from "./followButton.vue";
 import ProfilePicture from "./ProfilePicture.vue";
-import router from '../router'
+import router from "../router";
 
 const props = defineProps({
   profile: Object,
 });
 
 function goToProfile(id) {
-  window.location.pathname = (`/profile/${id}`)
+  window.location.pathname = `/profile/${id}`;
 }
 </script>
 
@@ -25,12 +25,12 @@ function goToProfile(id) {
       :followedUser="profile.id"
     />
   </div>
-  <hr id="splitter"/>
+  <hr id="splitter" />
 </template>
 
 <style scoped>
 #splitter {
-  width:80%;
+  width: 80%;
 }
 #pfp {
   height: 4rem;
