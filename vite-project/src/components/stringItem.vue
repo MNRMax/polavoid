@@ -162,7 +162,7 @@ function handleAlgorithmChange() {
     <img src="\blueLightBulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
     <select name="fypOption" id="selectFyp">
         <option value="get_popular_posts">Popular</option>
-        <option value="fyp">For You</option>
+        <option value="get_for_you_posts">For You</option>
       <option value="get_trending_posts">Trending</option>
     </select>
 </template>
