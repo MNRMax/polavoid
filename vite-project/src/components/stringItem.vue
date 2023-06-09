@@ -14,15 +14,15 @@ const leftArray = ref([])
 const rightArray = ref([])
 let cooldown = false
 
-async function getInitialPosts() {
-    const { data, error } = await supabase.rpc("get_popular_posts", {
+async function getInitialPosts(alg) {
+    const { data, error } = await supabase.rpc(alg, {
         userid: sessionStore.session.value.user.id,
         min_index: 0,
         max_index: 10
     })
     return data
 }
-getInitialPosts().then(async (ids) => {
+getInitialPosts("get_popular_posts").then(async (ids) => {
     if (!ids || ids.length == 0 ) return
     const { data, error } = await supabase
         .from('posts')
@@ -128,9 +128,9 @@ function checkPossibleLeft() {
     </div>
     <img src="\blueLightBulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
     <select name="fypOption" id="selectFyp">
-      <option value="trending">Trending</option>
-      <option value="popular">Popular</option>
-      <option value="fyp">For You</option>
+        <option value="get_popular_posts">Popular</option>
+        <option value="fyp">For You</option>
+      <option value="get_trending_posts">Trending</option>
     </select>
 </template>
 
