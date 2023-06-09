@@ -126,9 +126,27 @@ function checkPossibleLeft() {
         <PostItem v-if="post[5]" :id="calcID(6)" class="post" :post="post[5]" />
     </div>
     <img src="\blueLightBulbs.png" alt="string lights" id="stringy" :style="getRotation()" />
+    <select name="fypOption" id="selectFyp">
+      <option value="trending">Trending</option>
+      <option value="popular">Popular</option>
+      <option value="fyp">For You</option>
+    </select>
 </template>
 
 <style scoped>
+#selectFyp {
+  position: absolute;
+  padding: 0px 70px;
+  min-height: 35px;
+  font-size: 20px;
+  left: 50%;
+  bottom: 15vh;
+  background-color: var(--button);
+  color: white;
+  border: solid var(--text) 1px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+}
 .post {
     transition: 1s;
     position: absolute;

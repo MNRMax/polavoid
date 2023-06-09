@@ -39,27 +39,10 @@ const post = ref(undefined);
       <StringItem />
       <!-- <PostItem v-if="post" :post="post" /> -->
     </div>
-
-    <select name="fypOption" id="selectFyp">
-      <option value="trending">Trending</option>
-      <option value="popular">Popular</option>
-      <option value="FYP">For You</option>
-    </select>
   </main>
 </template>
 
 <style scoped>
-#selectFyp {
-  position: fixed;
-  padding: 0px 70px;
-  min-height: 35px;
-  font-size: 20px;
-  left: 44vw;
-  bottom: 20vh;
-  background-color: var(--button);
-  color: white;
-  border: solid var(--text) 1px;
-}
 option {
   margin: auto;
 }

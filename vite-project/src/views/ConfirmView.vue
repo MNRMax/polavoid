@@ -38,7 +38,7 @@ async function changeUser() {
         }
         const { error } = await supabase.from('profiles').upsert(updates).select()
         if (error) throw error
-        router.go(`/profile/${sessionStore.session.value.user.id}`)
+        window.location.pathname = (`/profile/${sessionStore.session.value.user.id}`)
     } catch (error) {
 
     }
