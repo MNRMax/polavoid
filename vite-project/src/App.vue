@@ -54,9 +54,16 @@ async function getOldSession() {
         </a>
     </div>
     <RouterView />
+    <p id="note">Note: There is a bug where sometimes posts have the wrong author. Max will fix it.</p>
 </template>
 
 <style scoped>
+#note {
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    font-size: 0.75rem;
+}
 #navigationBar {
     z-index: 100;
     max-width: 1400px;
