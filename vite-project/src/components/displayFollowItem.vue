@@ -46,7 +46,6 @@ getProfile().then((data) => {
 #box {
   overflow-y: scroll;
   position: fixed;
-  background-color: var(--shadow);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

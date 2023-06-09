@@ -125,17 +125,34 @@ const signOut = async () => {
   position: relative;
 }
 #posts {
-    width: 100vw;
-    max-width: 1280px;
-    height: 27vw;
-    overflow-y: scroll;
-    position: fixed;
-    background-color: var(--shadow);
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    row-gap: 22vw;
+  width: 100vw;
+  max-width: 1280px;
+  height: 27vw;
+  overflow-y: scroll;
+  position: fixed;
+  background-color: var(--shadow);
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 22vw;
+}
+::-webkit-scrollbar {
+  width: 30px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background);
+  border-radius: 10px;
+  transition: 1s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button);
 }
 .page {
   color: var(--text);
