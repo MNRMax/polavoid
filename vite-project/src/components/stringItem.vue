@@ -23,6 +23,7 @@ async function getInitialPosts() {
     return data
 }
 getInitialPosts().then(async (ids) => {
+    if (!ids || ids.length == 0 ) return
     const { data, error } = await supabase
         .from('posts')
         .select()

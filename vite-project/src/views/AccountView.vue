@@ -125,15 +125,17 @@ const signOut = async () => {
   position: relative;
 }
 #posts {
-  max-width: 1280px;
-  height: 50vh;
-  overflow-y: scroll;
-  position: fixed;
-  background-color: var(--shadow);
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    width: 100vw;
+    max-width: 1280px;
+    height: 27vw;
+    overflow-y: scroll;
+    position: fixed;
+    background-color: var(--shadow);
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 22vw;
 }
 .page {
   color: var(--text);
